@@ -1,0 +1,4 @@
+
+  useEffect(() => {
+    fetchCityForecast(cityInput)
+  }, [cityInput])
