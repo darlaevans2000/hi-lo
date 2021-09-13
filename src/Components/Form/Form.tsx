@@ -1,11 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import './Form.css'
 import { fetchCityForecast } from '../../apiCalls'
 
-const Form = () => {
+interface SearchCityProps {
+  onSearch: (cityInput: string) => void;
+}
+
+const Form: FC<SearchCityProps> = ({ onSearch }) => {
   const [cityInput, setCityInput] = useState('')
   const disableSearch = cityInput.trim() === '';
 
+  const addCity = () => {
+    onSearch(cityInput)
+    setCityInput('')
+  }
 
   useEffect(() => {
     fetchCityForecast(cityInput)
@@ -15,7 +23,7 @@ const Form = () => {
     <div className='searchForm'>
       <form>
         Search Location <input type='text' value={cityInput} onChange={e => setCityInput(e.target.value)}/>
-        <button disabled={disableSearch}>Search</button>
+        <button onClick={addCity} disabled={disableSearch}>Search</button>
       </form>
     </div>
   )

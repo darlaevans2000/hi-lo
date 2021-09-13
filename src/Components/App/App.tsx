@@ -5,10 +5,14 @@ import Form from '../Form/Form'
 
 function App() {
 
+  const [cities, setCities] = useState<string[]>([])
+  const addCity = (city: string) => setCities([city, ...cities])
+
   return (
     <div className="App">
       <Header />
-      <Form />
+      <Form onSearch={addCity}/>
+      <HomeLocationCards cities={cities}/>
     </div>
   );
 }
