@@ -1,35 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from '../Header/Header'
-import { fetchCityForecast, fetchHomePageForecasts } from '../../apiCalls'
+import Form from '../Form/Form'
 
 function App() {
-
-  const [cityInput, setCityInput] = useState('')
-  const disableSearch = cityInput.trim() === '';
-  
-  const [homeLocations, setHomeLocations] = useState([])
-
-  useEffect(() => {
-    fetchCityForecast(cityInput)
-  }, [cityInput])
-
-  /*useEffect(() => {
-    const phoenix = fetchHomePageForecasts('Phoenix')
-    const losAngeles = fetchHomePageForecasts('Los Angeles')
-    const newYorkCity = fetchHomePageForecasts('New York City')
-    const denver = fetchHomePageForecasts('Denver')
-
-  }, [homeLocations])*/
-
 
   return (
     <div className="App">
       <Header />
-      <form>
-        Search Location <input type='text' value={cityInput} onChange={e => setCityInput(e.target.value)}/>
-        <button disabled={disableSearch}>Search</button>
-      </form>
+      <Form />
     </div>
   );
 }
