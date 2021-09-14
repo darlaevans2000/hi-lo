@@ -6,21 +6,24 @@ interface SearchCityProps {
   onSearch: (cityInput: string) => void;
 }
 
-const Form: FC<SearchCityProps> = ({ onSearch }) => {
+export const Form: FC<SearchCityProps> = ({onSearch}) => {
   const [cityInput, setCityInput] = useState('')
   const disableSearch = cityInput.trim() === '';
 
-  const addCity = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    e.preventDefault()
-    onSearch(cityInput)
-    setCityInput('')
-  }
+  const addCity = () => {
+    onSearch(cityInput);
+    setCityInput('');
+  };
 
   return (
     <div className='searchForm'>
       <form>
-        Search Location <input type='text' value={cityInput} onChange={e => setCityInput(e.target.value)}/>
-        <button type='submit' onClick={addCity} disabled={disableSearch}>Search</button>
+        <label>
+        Search by City 
+        <input className="search-by-city" type="text" value={cityInput}
+               onChange={e => setCityInput(e.target.value)}/>
+        </label>
+        <button className="search-btn" type='submit' onClick={addCity} disabled={disableSearch}>Search</button>
       </form>
     </div>
   )

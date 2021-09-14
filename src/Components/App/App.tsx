@@ -1,19 +1,52 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, FC } from 'react';
 import './App.css';
 import Header from '../Header/Header'
 import Form from '../Form/Form'
-import HomeLocationCards from '../HomeLocationCards/HomeLocationCards'
+import HomeCityCards from '../HomeCityCards/HomeCityCards'
+import { fetchCityForecast } from '../../apiCalls'
+import { WeatherLocation } from "../../model/Weather";
 
-function App() {
+const App: FC = () => {
+  const [cities, setCities] = useState<WeatherLocation[]>([]);
+  const [error, setError] = useState('');
+  const [warning, setWarning] = useState('');
+  const [currentCity, setCurrentCity] = useState<WeatherLocation | null>(null);
+  
+  const resetAlerts = () => {
+    setError('');
+    setWarning('');
+  }
 
-  const [cities, setCities] = useState<string[]>([])
-  const addCity = (city: string) => setCities([city, ...cities])
+  let addCity = async (term: string) => {
+    resetAlerts();
+    const city = await fetchCityForecast(term);
 
+    if (!city) {
+      setError(`No location found called '${term}'`);
+    } else if (cities.find(item => item.id === city.id)) {
+      setWarning(`Location '${term}' is already in the list.`);
+    } else {
+      setCities([city, ...cities]);
+    }
+  };
   return (
     <div className="App">
       <Header />
       <Form onSearch={addCity}/>
-      <HomeLocationCards cities={cities}/>
+      {
+        error
+          ? <div className={`alert alert-danger`}>{error}</div>
+          : null
+      }
+      {
+        warning
+          ? <div className={`alert alert-warning`}>{warning}</div>
+          : null
+      }
+      <HomeCityCards allCities={cities}
+                     onSelect={city => setCurrentCity(city)}
+                     current={currentCity}
+                     />
     </div>
   );
 }
