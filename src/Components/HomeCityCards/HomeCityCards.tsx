@@ -5,17 +5,17 @@ import HomeCityCard from "../HomeCityCard/HomeCityCard"
 interface HomeCityProps {
   allCities: WeatherLocation[];
   current: WeatherLocation | null;
-  onSelect: (allCities: WeatherLocation) => void;
+  onSelect: (city: WeatherLocation) => void;
 }
 
-export const HomeCityCards: FC<HomeCityProps> = ({ allCities }) => {
+export const HomeCityCards: FC<HomeCityProps> = ({ allCities, onSelect }) => {
   const cityCards = allCities.map(city => {
     return (
-      <HomeCityCard
-        cityName={city.name}
-        cityHi={city.main.temp_max}
-        cityLo={city.main.temp_min}
-      />
+      <div className="city-card" onClick={() => onSelect(city)}>
+          <p>{city.name}</p>
+          <p>{city.main.temp_max}</p>
+          <p>{city.main.temp_min}</p>
+      </div> 
     );
   });
   return <div className="cities-area">{[cityCards]}</div>;
