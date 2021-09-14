@@ -1,7 +1,5 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useState } from 'react'
 import './Form.css'
-import { fetchCityForecast } from '../../apiCalls'
-
 interface SearchCityProps {
   onSearch: (cityInput: string) => void;
 }
