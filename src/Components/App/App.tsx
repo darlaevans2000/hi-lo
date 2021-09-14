@@ -23,8 +23,6 @@ const App: FC = () => {
 
     if (!city) {
       setError(`No location found called '${term}'`);
-    } else if (cities.find(item => item.id === city.id)) {
-      setWarning(`Location '${term}' is already in the list.`);
     } else {
       setCities([city, ...cities]);
     }

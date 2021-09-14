@@ -1,5 +1,6 @@
 import React, {FC} from "react";
 import { WeatherLocation } from "../../model/Weather";
+import HomeCityCard from "../HomeCityCard/HomeCityCard"
 
 interface HomeCityProps {
   allCities: WeatherLocation[];
@@ -7,17 +8,16 @@ interface HomeCityProps {
   onSelect: (allCities: WeatherLocation) => void;
 }
 
-export const HomeCityCards: FC<HomeCityProps> = ({ allCities, onSelect, current }) => {
-return (
-<section className="card-area">
-        {allCities.map(city =>
-        <li key={city.id}
-            onClick={() => onSelect(city)}>
-          <h2>{city.name}</h2>
-        </li>
-      )}
-  </section>
-  )};
+export const HomeCityCards: FC<HomeCityProps> = ({ allCities }) => {
+  const cityCards = allCities.map(city => {
+    return (
+      <HomeCityCard
+        cityName={city.city.name}
+      />
+    );
+  });
+  return <div className="cities-area">{[cityCards]}</div>;
+};
 
 
 export default HomeCityCards;

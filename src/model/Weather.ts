@@ -4,7 +4,9 @@ export interface Coordinates {
 }
 
 export interface WeatherLocation {
-  coord: Coordinates;
-  id: number;
-  name: string;
+  city: {
+    coord: Coordinates;
+    id: number;
+    name: string;
+  }
 }
