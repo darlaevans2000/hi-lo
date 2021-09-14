@@ -4,9 +4,7 @@ const apiKey = "dc464d940e53a603d97ca8d66b0afd96";
 export const fetchCityForecast = (city: string) => {
     return fetch(`${baseURL}forecast?q=${city}&appid=${apiKey}`)
       .then((response) => response.json())
-      .then(data => {
-        console.log('fetch call', data)
-      })
+      .then(response => Promise.resolve(response))
       .catch((error) => console.log(error.message));
 };
 

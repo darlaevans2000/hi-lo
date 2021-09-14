@@ -10,20 +10,17 @@ const Form: FC<SearchCityProps> = ({ onSearch }) => {
   const [cityInput, setCityInput] = useState('')
   const disableSearch = cityInput.trim() === '';
 
-  const addCity = () => {
+  const addCity = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    e.preventDefault()
     onSearch(cityInput)
     setCityInput('')
   }
-
-  useEffect(() => {
-    fetchCityForecast(cityInput)
-  }, [cityInput])
 
   return (
     <div className='searchForm'>
       <form>
         Search Location <input type='text' value={cityInput} onChange={e => setCityInput(e.target.value)}/>
-        <button onClick={addCity} disabled={disableSearch}>Search</button>
+        <button type='submit' onClick={addCity} disabled={disableSearch}>Search</button>
       </form>
     </div>
   )
