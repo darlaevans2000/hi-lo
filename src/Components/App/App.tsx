@@ -23,6 +23,8 @@ const App: FC = () => {
 
     if (!city) {
       setError(`No location found called '${term}'`);
+    } else if (cities.find(item => item.id === city.id)) {
+      setWarning(`Location '${term}' is already in the list.`);
     } else {
       setCities([city, ...cities]);
     }
@@ -33,12 +35,12 @@ const App: FC = () => {
       <Form onSearch={addCity}/>
       {
         error
-          ? <div className={`alert alert-danger`}>{error}</div>
+          ? <div className={"error"}>{error}</div>
           : null
       }
       {
         warning
-          ? <div className={`alert alert-warning`}>{warning}</div>
+          ? <div className={"warning"}>{warning}</div>
           : null
       }
       <HomeCityCards allCities={cities}

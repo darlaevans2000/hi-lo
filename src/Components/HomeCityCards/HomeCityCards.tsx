@@ -12,7 +12,9 @@ export const HomeCityCards: FC<HomeCityProps> = ({ allCities }) => {
   const cityCards = allCities.map(city => {
     return (
       <HomeCityCard
-        cityName={city.city.name}
+        cityName={city.name}
+        cityHi={city.main.temp_max}
+        cityLo={city.main.temp_min}
       />
     );
   });
