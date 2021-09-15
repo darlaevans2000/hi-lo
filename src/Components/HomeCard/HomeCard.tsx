@@ -4,7 +4,7 @@ import { WeatherLocation } from "../../model/Weather";
 interface HomeCardProps {
   key: number;
   onSelect: (passedCity: WeatherLocation) => void;
-  passedCity: WeatherLocation;
+  current: WeatherLocation;
   name: string;
   hi: number;
   lo: number;
@@ -12,9 +12,9 @@ interface HomeCardProps {
   icon: string;
 }
 
-const HomeCard : FC<HomeCardProps> = ({ key, onSelect, passedCity, name, hi, lo, description, icon}) => {
+const HomeCard : FC<HomeCardProps> = ({ key, onSelect, current, name, hi, lo, description, icon}) => {
   return (
-    <div key={key} className="city-card" onClick={() => onSelect(passedCity)}>
+    <div key={key} className="city-card" onClick={() => onSelect(current)}>
         <h2>{name}</h2>
         <h3>Today</h3>
         <h4>Hi:</h4>

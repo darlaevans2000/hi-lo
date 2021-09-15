@@ -19,34 +19,27 @@ const App: FC = () => {
 
   let addCity = async (cityName: string) => {
     resetAlerts();
-    const city = await fetchCityForecast(cityName);
+    const fetchedCity = await fetchCityForecast(cityName);
 
-    if (!city) {
+    if (!fetchedCity) {
       setError(`No location found called '${cityName}'`);
-    } else if (cities.find(item => item.id === city.id)) {
+    } else if (cities.find(city => city.id === fetchedCity.id)) {
       setWarning(`Location '${cityName}' is already in the list.`);
     } else {
-      setCities([city, ...cities]);
+      setCities([fetchedCity, ...cities]);
     }
   };
   return (
     <div className="App">
       <Header />
       <Form onSearch={addCity}/>
-      {
-        error
-          ? <div className={"error"}>{error}</div>
-          : null
-      }
-      {
-        warning
-          ? <div className={"warning"}>{warning}</div>
-          : null
-      }
-      <HomeCityCards allCities={cities}
-                     onSelect={city => setCurrentCity(city)}
-                     current={currentCity}
-                     />
+      {error ? <div className={"error"}>{error}</div> : null}
+      {warning ? <div className={"warning"}>{warning}</div> : null}
+      <HomeCityCards
+        allCities={cities}
+        onSelect={city => setCurrentCity(city)}
+        current={currentCity}
+      />
     </div>
   );
 }
