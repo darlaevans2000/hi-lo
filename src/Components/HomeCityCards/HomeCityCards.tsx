@@ -1,15 +1,16 @@
 import React, {FC} from "react";
-import { WeatherLocation } from "../../model/Weather";
+import { WeatherLocation, Forecast } from "../../model/Weather";
 import HomeCard from "../HomeCard/HomeCard"
 
 interface HomeCityProps {
   allCities: WeatherLocation[];
-  current: null | WeatherLocation;
   onSelect: (city: WeatherLocation) => void;
+  current: WeatherLocation | null;
+  details: Forecast | null;
 }
 
 export const HomeCityCards: FC<HomeCityProps> = ({ allCities, current, onSelect }) => {
-
+console.log('home city cards current', current)
 
   const cityCards = allCities.map(city => {
     return (

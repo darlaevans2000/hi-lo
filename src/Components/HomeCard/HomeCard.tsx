@@ -13,6 +13,7 @@ interface HomeCardProps {
 }
 
 const HomeCard : FC<HomeCardProps> = ({ key, onSelect, current, name, hi, lo, description, icon}) => {
+  console.log('homecard current', current)
   return (
     <div key={key} className="city-card" onClick={() => onSelect(current)}>
         <h2>{name}</h2>

@@ -3,14 +3,16 @@ import './App.css';
 import Header from '../Header/Header'
 import Form from '../Form/Form'
 import HomeCityCards from '../HomeCityCards/HomeCityCards'
-import { fetchCityForecast } from '../../apiCalls'
+import { fetchCityForecast, fetchForecastDetails } from '../../apiCalls'
 import { WeatherLocation } from "../../model/Weather";
+import { Forecast } from '../../model/Weather'
 
 const App: FC = () => {
   const [cities, setCities] = useState<WeatherLocation[]>([]);
   const [error, setError] = useState('');
   const [warning, setWarning] = useState('');
   const [currentCity, setCurrentCity] = useState<WeatherLocation | null>(null);
+  const [forecastDetails, setForecastDetails] = useState<Forecast | null>(null);
 
   const resetAlerts = () => {
     setError('');
@@ -30,12 +32,13 @@ const App: FC = () => {
     }
   };
 
-  let setCityDetails = (city: WeatherLocation) => {
-    setCurrentCity(city)
-    console.log("CURRENT CITY>>", currentCity)
-    console.log("CITY", cities)
-    if (currentCity) {
-      console.log(currentCity.coord.lat)
+  let setDetails = async (currentCity: WeatherLocation) => {
+    const lat = currentCity.coord.lat.toString()
+    const lon = currentCity.coord.lon.toString()
+    const fetchedDetails = await fetchForecastDetails(lat, lon)
+
+    if (fetchedDetails) {
+      setForecastDetails(fetchedDetails)
     }
   }
 
@@ -46,10 +49,15 @@ const App: FC = () => {
       <Form onSearch={addCity}/>
       {error ? <div className={"error"}>{error}</div> : null}
       {warning ? <div className={"warning"}>{warning}</div> : null}
+
       <HomeCityCards
         allCities={cities}
-        onSelect={city => setCityDetails(city)}
+        onSelect={city => {
+          setCurrentCity(city)
+          setDetails(city)
+        }}
         current={currentCity}
+        details={forecastDetails}
       />
     </div>
   );
