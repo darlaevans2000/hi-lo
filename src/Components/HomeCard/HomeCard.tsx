@@ -1,4 +1,5 @@
 import React, {FC} from "react";
+import './HomeCard.css'
 import { WeatherLocation, Forecast } from "../../model/Weather";
 
 interface HomeCardProps {
