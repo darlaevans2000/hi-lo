@@ -1,21 +1,31 @@
+import React, {FC} from "react";
 import { WeatherLocation } from "../../model/Weather";
 
 interface HomeCardProps {
-  onSelect: (city: WeatherLocation)
+  id: number;
+  onSelect: (city: WeatherLocation) => void;
+  name: string;
+  hi: number;
+  lo: number;
+  description: string;
+  icon: string;
 }
 
-const HomeCard = ({ onSelect}) => {
+const HomeCard : FC<HomeCardProps> = ({ id, onSelect, name, hi, lo, description, icon}) => {
   return (
-    <div key={city.id} className="city-card" onClick={() => onSelect(city)}>
-        <h2>{city.name}</h2>
+    <div key={id} className="city-card" onClick={() => onSelect(city)}>
+        <h2>{name}</h2>
         <h3>Today</h3>
         <h4>Hi:</h4>
-        <p>{city.main.temp_min}</p>
+        <p>{lo}</p>
         <h4>Lo:</h4>
-        <p>{city.main.temp_max}</p>
+        <p>{hi}</p>
         <h4>Weather Status:</h4>
-        <p>{city.weather[0].description} </p>
-        <img src={`http://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`} alt="Weather"></img>
+        <p>{description} </p>
+        <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="Weather"></img>
     </div>
   )
 }
+
+
+export default HomeCard;
