@@ -27,7 +27,7 @@ console.log('forecast details', details)
       />
     );
   });
-  return <div className="cities-area">{cityCards}</div>;
+  return <div className="cities-container">{cityCards}</div>;
 };
 
 
