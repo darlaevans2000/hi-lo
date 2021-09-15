@@ -4,17 +4,19 @@ import HomeCard from "../HomeCard/HomeCard"
 
 interface HomeCityProps {
   allCities: WeatherLocation[];
-  current: WeatherLocation | null;
+  current: null | WeatherLocation;
   onSelect: (city: WeatherLocation) => void;
 }
 
 export const HomeCityCards: FC<HomeCityProps> = ({ allCities, current, onSelect }) => {
+
+
   const cityCards = allCities.map(city => {
     return (
       <HomeCard
         key={city.id}
         onSelect={() => onSelect(city)}
-        current={city}
+        current={current}
         name={city.name}
         hi={city.main.temp_max}
         lo={city.main.temp_min}

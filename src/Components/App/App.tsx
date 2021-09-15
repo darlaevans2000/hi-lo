@@ -29,6 +29,14 @@ const App: FC = () => {
       setCities([fetchedCity, ...cities]);
     }
   };
+
+  let setCityDetails = (city: WeatherLocation) => {
+    setCurrentCity(city)
+    console.log("CURRENT CITY>>",currentCity)
+    console.log("CITY", cities)
+  }
+
+
   return (
     <div className="App">
       <Header />
@@ -37,7 +45,7 @@ const App: FC = () => {
       {warning ? <div className={"warning"}>{warning}</div> : null}
       <HomeCityCards
         allCities={cities}
-        onSelect={city => setCurrentCity(city)}
+        onSelect={city => setCityDetails(city)}
         current={currentCity}
       />
     </div>
