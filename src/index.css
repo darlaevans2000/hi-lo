@@ -17,3 +17,7 @@ body {
 code {
   font-family: 'Poppins','Courier New', monospace;
 }
+
+.no-city {
+  color: #005470;
+}

@@ -51,7 +51,7 @@ const App: FC = () => {
         {error ? <div className={"error"}>{error}</div> : null}
         {warning ? <div className={"warning"}>{warning}</div> : null}
 
-        {!cities.length ? <h2>No city forecasts to show</h2> : <HomeCityCards
+        {!cities.length ? <h2 className='no-city'>No city forecasts to show</h2> : <HomeCityCards
           allCities={cities}
           onSelect={city => {
             setCurrentCity(city)
