@@ -2,8 +2,9 @@ import React, {FC} from "react";
 import { WeatherLocation } from "../../model/Weather";
 
 interface HomeCardProps {
-  id: number;
-  onSelect: (city: WeatherLocation) => void;
+  key: number;
+  onSelect: (passedCity: WeatherLocation) => void;
+  passedCity: WeatherLocation;
   name: string;
   hi: number;
   lo: number;
@@ -11,9 +12,9 @@ interface HomeCardProps {
   icon: string;
 }
 
-const HomeCard : FC<HomeCardProps> = ({ id, onSelect, name, hi, lo, description, icon}) => {
+const HomeCard : FC<HomeCardProps> = ({ key, onSelect, passedCity, name, hi, lo, description, icon}) => {
   return (
-    <div key={id} className="city-card" onClick={() => onSelect(city)}>
+    <div key={key} className="city-card" onClick={() => onSelect(passedCity)}>
         <h2>{name}</h2>
         <h3>Today</h3>
         <h4>Hi:</h4>
