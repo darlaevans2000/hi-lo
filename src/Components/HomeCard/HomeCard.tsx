@@ -4,7 +4,7 @@ import { WeatherLocation } from "../../model/Weather";
 interface HomeCardProps {
   key: number;
   onSelect: (city: WeatherLocation) => void;
-  current: WeatherLocation;
+  current: WeatherLocation | null;
   name: string;
   hi: number;
   lo: number;
