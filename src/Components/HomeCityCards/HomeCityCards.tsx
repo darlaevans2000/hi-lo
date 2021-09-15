@@ -1,4 +1,6 @@
 import React, {FC} from "react";
+import './HomeCityCards.css'
+
 import { WeatherLocation, Forecast } from "../../model/Weather";
 import HomeCard from "../HomeCard/HomeCard"
 
