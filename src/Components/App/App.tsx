@@ -11,20 +11,20 @@ const App: FC = () => {
   const [error, setError] = useState('');
   const [warning, setWarning] = useState('');
   const [currentCity, setCurrentCity] = useState<WeatherLocation | null>(null);
-  
+
   const resetAlerts = () => {
     setError('');
     setWarning('');
   }
 
-  let addCity = async (term: string) => {
+  let addCity = async (cityName: string) => {
     resetAlerts();
-    const city = await fetchCityForecast(term);
+    const city = await fetchCityForecast(cityName);
 
     if (!city) {
-      setError(`No location found called '${term}'`);
+      setError(`No location found called '${cityName}'`);
     } else if (cities.find(item => item.id === city.id)) {
-      setWarning(`Location '${term}' is already in the list.`);
+      setWarning(`Location '${cityName}' is already in the list.`);
     } else {
       setCities([city, ...cities]);
     }
