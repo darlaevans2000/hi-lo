@@ -9,8 +9,8 @@ interface HomeCityProps {
   details: Forecast | null;
 }
 
-export const HomeCityCards: FC<HomeCityProps> = ({ allCities, current, onSelect }) => {
-console.log('home city cards current', current)
+export const HomeCityCards: FC<HomeCityProps> = ({ allCities, onSelect, current, details }) => {
+console.log('forecast details', details)
 
   const cityCards = allCities.map(city => {
     return (
@@ -18,6 +18,7 @@ console.log('home city cards current', current)
         key={city.id}
         onSelect={() => onSelect(city)}
         current={city}
+        details={details}
         name={city.name}
         hi={city.main.temp_max}
         lo={city.main.temp_min}

@@ -1,10 +1,11 @@
 import React, {FC} from "react";
-import { WeatherLocation } from "../../model/Weather";
+import { WeatherLocation, Forecast } from "../../model/Weather";
 
 interface HomeCardProps {
   key: number;
   onSelect: (city: WeatherLocation) => void;
   current: WeatherLocation;
+  details: Forecast | null;
   name: string;
   hi: number;
   lo: number;
@@ -12,8 +13,7 @@ interface HomeCardProps {
   icon: string;
 }
 
-const HomeCard : FC<HomeCardProps> = ({ key, onSelect, current, name, hi, lo, description, icon}) => {
-  console.log('homecard current', current)
+const HomeCard : FC<HomeCardProps> = ({ key, onSelect, current, details, name, hi, lo, description, icon}) => {
   return (
     <div key={key} className="city-card" onClick={() => onSelect(current)}>
         <h2>{name}</h2>
