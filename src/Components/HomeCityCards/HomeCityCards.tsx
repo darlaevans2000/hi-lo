@@ -16,7 +16,7 @@ export const HomeCityCards: FC<HomeCityProps> = ({ allCities, current, onSelect 
       <HomeCard
         key={city.id}
         onSelect={() => onSelect(city)}
-        current={current}
+        current={city}
         name={city.name}
         hi={city.main.temp_max}
         lo={city.main.temp_min}

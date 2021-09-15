@@ -32,8 +32,11 @@ const App: FC = () => {
 
   let setCityDetails = (city: WeatherLocation) => {
     setCurrentCity(city)
-    console.log("CURRENT CITY>>",currentCity)
+    console.log("CURRENT CITY>>", currentCity)
     console.log("CITY", cities)
+    if (currentCity) {
+      console.log(currentCity.coord.lat)
+    }
   }
 
 
