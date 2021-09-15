@@ -4,7 +4,7 @@ import HomeCard from "../HomeCard/HomeCard"
 
 interface HomeCityProps {
   allCities: WeatherLocation[];
-  current: WeatherLocation | null;
+  current?: WeatherLocation | null;
   onSelect: (city: WeatherLocation) => void;
 }
 
