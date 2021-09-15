@@ -11,42 +11,46 @@ const App: FC = () => {
   const [error, setError] = useState('');
   const [warning, setWarning] = useState('');
   const [currentCity, setCurrentCity] = useState<WeatherLocation | null>(null);
-  
+
   const resetAlerts = () => {
     setError('');
     setWarning('');
   }
 
-  let addCity = async (term: string) => {
+  let addCity = async (cityName: string) => {
     resetAlerts();
-    const city = await fetchCityForecast(term);
+    const fetchedCity = await fetchCityForecast(cityName);
 
-    if (!city) {
-      setError(`No location found called '${term}'`);
-    } else if (cities.find(item => item.id === city.id)) {
-      setWarning(`Location '${term}' is already in the list.`);
+    if (!fetchedCity) {
+      setError(`No location found called '${cityName}'`);
+    } else if (cities.find(city => city.id === fetchedCity.id)) {
+      setWarning(`Location '${cityName}' is already in the list.`);
     } else {
-      setCities([city, ...cities]);
+      setCities([fetchedCity, ...cities]);
     }
   };
+
+  let setCityDetails = (city: WeatherLocation) => {
+    setCurrentCity(city)
+    console.log("CURRENT CITY>>", currentCity)
+    console.log("CITY", cities)
+    if (currentCity) {
+      console.log(currentCity.coord.lat)
+    }
+  }
+
+
   return (
     <div className="App">
       <Header />
       <Form onSearch={addCity}/>
-      {
-        error
-          ? <div className={"error"}>{error}</div>
-          : null
-      }
-      {
-        warning
-          ? <div className={"warning"}>{warning}</div>
-          : null
-      }
-      <HomeCityCards allCities={cities}
-                     onSelect={city => setCurrentCity(city)}
-                     current={currentCity}
-                     />
+      {error ? <div className={"error"}>{error}</div> : null}
+      {warning ? <div className={"warning"}>{warning}</div> : null}
+      <HomeCityCards
+        allCities={cities}
+        onSelect={city => setCityDetails(city)}
+        current={currentCity}
+      />
     </div>
   );
 }
