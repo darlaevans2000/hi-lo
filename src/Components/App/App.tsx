@@ -76,7 +76,7 @@ const App: FC = () => {
         <main className='details'>
           <Header />
           <TodaysForecastDetails
-
+          details={forecastDetails}
           />
         </main>
       )

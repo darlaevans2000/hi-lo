@@ -1,8 +1,16 @@
+import { Forecast } from "../../model/Weather";
+import React, {FC} from "react";
 
 
-export const TodaysForecastDetails = () => {
+interface TodaysDetailsProps {
+  details : Forecast | null
+}
+
+export const TodaysForecastDetails: FC<TodaysDetailsProps> = ({ details }) => {
   return (
+    <>
     <h1>Today CITY WEATHER DETAILS</h1>
+    </>
   )
 }
 
