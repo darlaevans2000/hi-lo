@@ -14,14 +14,16 @@ describe('User Movie Area Flows', () => {
       .get('*[class^="search-by-city"]')
   });
 
-  it("Should allow user to type in search bar and make a reservation by clicking the submit button", () => {
+  it("Should allow user to type in search bar and see that cities weather by clicking the submit button", () => {
+      cy.addCityWeatherCard()
     cy.get("form")
       .get('*[class^="search-by-city"]')
       .type("Denver")
       .should("have.value", "Denver")
-    cy.get('*[class^="search-btn"]').click();
-    cy.get('*[class^="cities-area"]').find('*[class^="city-card"]').should("have.length", 1);
+      cy.get('*[class^="search-btn"]').click()
+    // cy.get('*[class^="cities-container"]').find('*[class^="city-card"]').should("have.length", 1).contains("Denver");
   });
+
 
   });
 });
