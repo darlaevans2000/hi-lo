@@ -2,15 +2,12 @@ import { WeatherLocation, Forecast } from "../../model/Weather";
 import './TodaysForecastDetails.css'
 import React, {FC} from "react";
 
-
 interface TodaysDetailsProps {
   details : Forecast | null;
   clickedCard: WeatherLocation | null;
 }
 
 export const TodaysForecastDetails: FC<TodaysDetailsProps> = ({ details, clickedCard }) => {
-  console.log("Details", details)
-  console.log('CLickedCard', clickedCard)
 
   if (details && clickedCard) {
     const { dt, feels_like, humidity, sunrise, sunset, temp } = details.current
@@ -30,15 +27,19 @@ export const TodaysForecastDetails: FC<TodaysDetailsProps> = ({ details, clicked
       <section className='todays-container'>
         <article className='todays-details'>
           <h1 className='todays-header'>Detailed forecast for {clickedCard.name}</h1>
-          <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`}/>
           <h2>{convertedDate}</h2>
-          <p>{feels_like.toFixed(0)}&deg;</p>
-          <p>{humidity}</p>
-          <p>{temp}</p>
-          <p>{description}</p>
+          <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`}/>
+          <div className='temps'>
+            <p className='curr-temp'>CURRENTLY: {temp}&deg;</p>
+            <p className='feels-like-temp'>FEELS LIKE: {feels_like.toFixed(0)}&deg;</p>
+          </div>
+          <div className='humid-descrip'>
+            <p className='humidity'>HUMIDITIY: {humidity}%</p>
+            <p className='descrip'>{description.toUpperCase()}</p>
+          </div>
           <div className='sunrise-set'>
-            <p className='sunrise'>sunrise: {sunConvert(sunrise)} am</p>
-            <p className='sunset'>sunset: {sunConvert(sunset)} pm</p>
+            <p className='sunrise'>SUNRISE: {sunConvert(sunrise)}am</p>
+            <p className='sunset'>SUNSET: {sunConvert(sunset)}pm</p>
           </div>
         </article>
       </section>
