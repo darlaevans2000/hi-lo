@@ -7,7 +7,8 @@ import { fetchCityForecast, fetchForecastDetails } from '../../apiCalls'
 import { WeatherLocation } from "../../model/Weather";
 import { Forecast } from '../../model/Weather'
 import { Route } from 'react-router-dom';
-import TodaysForecastDetails from '../TodaysForecastDetails/TodaysForecastDetails'
+import TodaysForecastDetails from '../TodaysForecastDetails/TodaysForecastDetails';
+import FiveDayForecastCardContainer from '../FiveDayForecastCardContainer/FiveDayForecastCardContainer';
 
 const App: FC = () => {
   const [cities, setCities] = useState<WeatherLocation[]>([]);
@@ -78,7 +79,9 @@ const App: FC = () => {
           <TodaysForecastDetails
           details={forecastDetails}
           />
-
+          <FiveDayForecastCardContainer
+          fiveDayDetails={forecastDetails}
+          />
         </main>
       )
     }} />
