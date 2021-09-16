@@ -20,7 +20,7 @@ export const TodaysForecastDetails: FC<TodaysDetailsProps> = ({ details }) => {
       <section className='todays-container'>
         <h1>Detailed Forecast</h1>
           <article className='todays-details'>
-            <p>{convertedDate}</p>
+            <h2>{convertedDate}</h2>
             <p>{feels_like}</p>
             <p>{humidity}</p>
             <p>{temp}</p>
