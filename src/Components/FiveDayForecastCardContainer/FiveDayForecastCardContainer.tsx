@@ -11,12 +11,15 @@ export const FiveDayForecastCardContainer: FC<FiveDayForecastCardContainerProps>
   if (fiveDayDetails) {
     const { dt, feels_like, humidity, sunrise, sunset, temp } = fiveDayDetails.current
     const { id, main, description, icon } = fiveDayDetails.current.weather[0]
+    const dailyArray = fiveDayDetails.daily
+    console.log("DAILY>>", dailyArray)
 
     return (
       <>
-      <FiveDayForecastCard 
+      <FiveDayForecastCard
         key={id}
         temp={temp}
+        days={fiveDayDetails}
       />
       </>
     )
