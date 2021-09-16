@@ -18,13 +18,12 @@ const HomeCard : FC<HomeCardProps> = ({ key, onSelect, clickedCard, details, nam
   return (
     <div key={key} className="city-card" onClick={() => onSelect(clickedCard)} >
         <h2>{name}</h2>
-        <h3>Today</h3>
+        <h3 className='today'>Today</h3>
         <div className='hi-lo-temp-container'>
-          <p className='hi-lo'>Hi: {hi.toFixed(0)} | Lo: {lo.toFixed(0)} </p>
+          <p className='hi-lo'>Hi: {hi.toFixed(0)}&deg; | Lo: {lo.toFixed(0)}&deg; </p>
         </div>
 
-        <h3>Weather Status:</h3>
-        <p>{description} </p>
+        <h3>status: <br/>{description}</h3>
         <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="Weather Forecast Icon"></img>
     </div>
   )
