@@ -25,7 +25,7 @@ const HomeCard : FC<HomeCardProps> = ({ key, onSelect, clickedCard, details, nam
         <p>{lo.toFixed(0)}</p>
         <h4>Weather Status:</h4>
         <p>{description} </p>
-        <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="Weather"></img>
+        <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="Weather Forecast Icon"></img>
     </div>
   )
 }

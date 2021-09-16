@@ -24,6 +24,8 @@ export const TodaysForecastDetails: FC<TodaysDetailsProps> = ({ details }) => {
             <p>{feels_like}</p>
             <p>{humidity}</p>
             <p>{temp}</p>
+            <p>{description}</p>
+            <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`}/>
           </article>
       </section>
     )
