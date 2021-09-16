@@ -78,6 +78,7 @@ const App: FC = () => {
           <TodaysForecastDetails
           details={forecastDetails}
           />
+
         </main>
       )
     }} />
