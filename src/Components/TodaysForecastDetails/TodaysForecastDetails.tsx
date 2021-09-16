@@ -22,7 +22,8 @@ export const TodaysForecastDetails: FC<TodaysDetailsProps> = ({ details, clicked
 
     const sunConvert = (sun: number) => {
       let newTime: string = new Date(sun * 1000).toLocaleString()
-      return newTime.split(' ')[1]
+      let editTime = newTime.split(' ')[1].split('').slice(0, 4).join('')
+      return editTime
     }
 
     return (
