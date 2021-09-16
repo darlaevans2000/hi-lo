@@ -27,14 +27,17 @@
 // import movieInfoData from '../fixtures/movie-info-data.json';
 
 
-import denverData from '../fixtures/denver-data';
+import denverData from '../fixtures/denver-data.json';
 
 Cypress.Commands.add('loadHomePage', () => {
-    cy.intercept('https://api.openweathermap.org/data/2.5/weather?q=denver&units=imperial&appid=dc464d940e53a603d97ca8d66b0afd96', denverData[0])
     cy.visit('http://localhost:3000/hi-lo')
 })
 
 
 Cypress.Commands.add('addCityWeatherCard', () => {
-  cy.intercept('https://api.openweathermap.org/data/2.5/weather?q=denver&units=imperial&appid=dc464d940e53a603d97ca8d66b0afd96', denverData[0])
+        cy.intercept('GET', "https://api.openweathermap.org/data/2.5/weather?q=Denver&units=imperial&appid=bd1b2da0970838af00f1dddfa1582f13", 
+        {
+            statusCode: 200, 
+            body: denverData
+        })
 });

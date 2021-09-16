@@ -1,12 +1,13 @@
 describe("User Movie Area Flows", () => {
-  beforeEach(() => {
-    cy.loadHomePage();
-  });
+    beforeEach(() => {
+      cy.loadHomePage();
+    });
 
   describe("Main Page Render", () => {
-      //Going to need to stub this data ASAP because the data changes day to day, which would cause an error. Or we can 
-      // keep it how it is of checking if a card rendered w/ value of city name. (not specific to date data)
+    //Going to need to stub this data ASAP because the data changes day to day, which would cause an error. Or we can
+    // keep it how it is of checking if a card rendered w/ value of city name. (not specific to date data)
     it("Should have a header with text Hi-Lo Weather on load", () => {
+      cy.loadHomePage();
       cy.get("h1").contains("hi-lo weather ☀️");
     });
 
@@ -19,53 +20,56 @@ describe("User Movie Area Flows", () => {
         .get('*[class^="search-by-city"]')
         .type("Denver")
         .should("have.value", "Denver");
+      cy.addCityWeatherCard();
       cy.get('*[class^="search-btn"]').click();
       cy.get('*[class^="cities-container"]')
         .find('*[class^="city-card"]')
         .should("have.length", 1)
         .contains("Denver");
+      cy.get("p").contains(50);
+      //ADD name = onto p tags and other classes for easy testing
     });
-  });
+      });
 
-  describe("Error and Warning Messages", () => {
-      //Will update these once I can get a diff message to display in dom for diff errors. 
-    it("Should display error message for 500 status code", () => {
-      cy.visit("http://localhost:3000/")
-        .get("form")
-        .get('*[class^="search-by-city"]')
-        .type("blah");
-      cy.get('*[class^="search-btn"]').click();
-      cy.intercept(
-        "https://api.openweathermap.org/data/2.5/weather?q=denver&units=imperial&appid=dc464d940e53a603d97ca8d66b0afd96",
-        {
-          statusCode: 500,
-        }
-      );
-      cy.contains(`No location found called 'blah'`);
-    });
+      describe("Error and Warning Messages", () => {
+          // Will update these once I can get a diff message to display in dom for diff errors.
+        it("Should display error message for 500 status code", () => {
+          cy.visit("http://localhost:3000/")
+            .get("form")
+            .get('*[class^="search-by-city"]')
+            .type("blah");
+          cy.get('*[class^="search-btn"]').click();
+          cy.intercept(
+            "https://api.openweathermap.org/data/2.5/weather?q=denver&units=imperial&appid=dc464d940e53a603d97ca8d66b0afd96",
+            {
+              statusCode: 500,
+            }
+          );
+          cy.contains(`No location found called 'blah'`);
+        });
 
-    it("Should display error message for 404 status code", () => {
-      cy.visit("http://localhost:3000/")
-        .get("form")
-        .get('*[class^="search-by-city"]')
-        .type("blah");
-      cy.get('*[class^="search-btn"]').click();
-      cy.contains(`No location found called 'blah'`);
-    });
+        it("Should display error message for 404 status code", () => {
+          cy.visit("http://localhost:3000/")
+            .get("form")
+            .get('*[class^="search-by-city"]')
+            .type("blah");
+          cy.get('*[class^="search-btn"]').click();
+          cy.contains(`No location found called 'blah'`);
+        });
 
-    it("Should display error message for 400 status code", () => {
-      cy.visit("http://localhost:3000/")
-        .get("form")
-        .get('*[class^="search-by-city"]')
-        .type("blah");
-      cy.get('*[class^="search-btn"]').click();
-      cy.intercept(
-        "https://api.openweathermap.org/data/2.5/weather?q=denver&units=imperial&appid=dc464d940e53a603d97ca8d66b0afd96",
-        {
-          statusCode: 400,
-        }
-      );
-      cy.contains(`No location found called 'blah'`);
-    });
+        it("Should display error message for 400 status code", () => {
+          cy.visit("http://localhost:3000/")
+            .get("form")
+            .get('*[class^="search-by-city"]')
+            .type("blah");
+          cy.get('*[class^="search-btn"]').click();
+          cy.intercept(
+            "https://api.openweathermap.org/data/2.5/weather?q=denver&units=imperial&appid=dc464d940e53a603d97ca8d66b0afd96",
+            {
+              statusCode: 400,
+            }
+          );
+          cy.contains(`No location found called 'blah'`);
+        });
   });
 });
