@@ -1,4 +1,6 @@
 import React, {FC} from "react";
+import './HomeCityCards.css'
+
 import { WeatherLocation, Forecast } from "../../model/Weather";
 import HomeCard from "../HomeCard/HomeCard"
 
@@ -27,7 +29,7 @@ console.log('forecast details', details)
       />
     );
   });
-  return <div className="cities-area">{cityCards}</div>;
+  return <div className="cities-container">{cityCards}</div>;
 };
 
 

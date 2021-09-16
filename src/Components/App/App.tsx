@@ -46,19 +46,21 @@ const App: FC = () => {
   return (
     <div className="App">
       <Header />
-      <Form onSearch={addCity}/>
-      {error ? <div className={"error"}>{error}</div> : null}
-      {warning ? <div className={"warning"}>{warning}</div> : null}
+      <main className='main'>
+        <Form onSearch={addCity}/>
+        {error ? <div className={"error"}>{error}</div> : null}
+        {warning ? <div className={"warning"}>{warning}</div> : null}
 
-      <HomeCityCards
-        allCities={cities}
-        onSelect={city => {
-          setCurrentCity(city)
-          setDetails(city)
-        }}
-        current={currentCity}
-        details={forecastDetails}
-      />
+        {!cities.length ? <h2 className='no-city'>No city forecasts to show</h2> : <HomeCityCards
+          allCities={cities}
+          onSelect={city => {
+            setCurrentCity(city)
+            setDetails(city)
+          }}
+          current={currentCity}
+          details={forecastDetails}
+        />}
+      </main>
     </div>
   );
 }
