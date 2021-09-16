@@ -6,6 +6,8 @@ import HomeCityCards from '../HomeCityCards/HomeCityCards'
 import { fetchCityForecast, fetchForecastDetails } from '../../apiCalls'
 import { WeatherLocation } from "../../model/Weather";
 import { Forecast } from '../../model/Weather'
+import { Route } from 'react-router-dom';
+import TodaysForecastDetails from '../TodaysForecastDetails/TodaysForecastDetails'
 
 const App: FC = () => {
   const [cities, setCities] = useState<WeatherLocation[]>([]);
@@ -44,23 +46,42 @@ const App: FC = () => {
 
 
   return (
-    <div className="App">
-      <Header />
-      <main className='main'>
-        <Form onSearch={addCity}/>
-        {error ? <div className={"error"}>{error}</div> : null}
-        {warning ? <div className={"warning"}>{warning}</div> : null}
 
-        {!cities.length ? <h2 className='no-city'>No city forecasts to show</h2> : <HomeCityCards
-          allCities={cities}
-          onSelect={city => {
-            setCurrentCity(city)
-            setDetails(city)
-          }}
-          current={currentCity}
+    <div className="App">
+    <Route exact path="/" render={() => {
+      return (
+        <>
+        <Header />
+        <main className='main'>
+          <Form onSearch={addCity}/>
+          {error ? <div className={"error"}>{error}</div> : null}
+          {warning ? <div className={"warning"}>{warning}</div> : null}
+
+          {!cities.length ? <h2 className='no-city'>No city forecasts to show</h2> : <HomeCityCards
+            allCities={cities}
+            onSelect={city => {
+              setCurrentCity(city)
+              setDetails(city)
+            }}
+            clickedCard={currentCity}
+            details={forecastDetails}
+          />}
+        </main>
+        </>
+      )
+    }} />
+    <Route exact path="/:name" render={({ match }) => {
+      const { params } = match
+      return (
+        <main className='details'>
+          <Header />
+          <TodaysForecastDetails
           details={forecastDetails}
-        />}
-      </main>
+          />
+
+        </main>
+      )
+    }} />
     </div>
   );
 }

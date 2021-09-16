@@ -3,30 +3,33 @@ import './HomeCityCards.css'
 
 import { WeatherLocation, Forecast } from "../../model/Weather";
 import HomeCard from "../HomeCard/HomeCard"
+import { Link } from 'react-router-dom';
 
 interface HomeCityProps {
   allCities: WeatherLocation[];
   onSelect: (city: WeatherLocation) => void;
-  current: WeatherLocation | null;
+  clickedCard: WeatherLocation | null;
   details: Forecast | null;
 }
 
-export const HomeCityCards: FC<HomeCityProps> = ({ allCities, onSelect, current, details }) => {
+export const HomeCityCards: FC<HomeCityProps> = ({ allCities, onSelect, clickedCard, details }) => {
 console.log('forecast details', details)
 
   const cityCards = allCities.map(city => {
     return (
-      <HomeCard
-        key={city.id}
-        onSelect={() => onSelect(city)}
-        current={city}
-        details={details}
-        name={city.name}
-        hi={city.main.temp_max}
-        lo={city.main.temp_min}
-        description={city.weather[0].description}
-        icon={city.weather[0].icon}
-      />
+      <Link to={`${city.name}`}>
+        <HomeCard
+          key={city.id}
+          onSelect={() => onSelect(city)}
+          clickedCard={city}
+          details={details}
+          name={city.name}
+          hi={city.main.temp_max}
+          lo={city.main.temp_min}
+          description={city.weather[0].description}
+          icon={city.weather[0].icon}
+        />
+      </Link>
     );
   });
   return <div className="cities-container">{cityCards}</div>;
