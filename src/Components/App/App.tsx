@@ -77,6 +77,7 @@ const App: FC = () => {
           <Header />
           <TodaysForecastDetails
           details={forecastDetails}
+          clickedCard={currentCity}
           />
 
         </main>

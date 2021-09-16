@@ -16,12 +16,12 @@
   box-shadow: 0px 0px 10px 0px #FFF;
 }
 
-h2 {
+.city-name {
   font-size: 2em;
   letter-spacing: 5px;
 }
 
-h3 {
+.status {
   font-size: 1.3em;
   font-weight: lighter;
 }

@@ -1,7 +1,10 @@
-h1 {
-  font-size: 2em;
+.todays-header {
+  font-size: 2.2em;
+  margin-top: .5em;
 }
 
 .todays-container {
-  border: 1px solid red;
+  background-color: #005470;
+  color: white;
+  border: 3px solid #EC6E4B;
 }
