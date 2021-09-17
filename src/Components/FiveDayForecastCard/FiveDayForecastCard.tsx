@@ -20,22 +20,22 @@ export const FiveDayForecastCard: FC<FiveDayForecastCardProps> = ({ key, temp, d
           <p className="day-two-lo">{days.daily[1].temp.min}°F</p>
         </section>
         <section className="day-three">
-          <p className="day-three-date">{(new Date(days.daily[2].dt * 1000)).toString().split(" ").slice(0, 1).join(" ").toUpperCase()}</p>
+          <p className="day-three-date">{days.daily[2].dt}</p>
           <img className="day-three-icon" src={`http://openweathermap.org/img/wn/${days.daily[2].weather[0].icon}@2x.png`} alt="Weather Icon"></img>
-          <p className="day-three-hi">{Math.round(((((days.daily[2].temp.max) - 273.15) * 1.8)) + 32)}°F</p>
-          <p className="day-three-lo">{Math.round(((((days.daily[2].temp.min) - 273.15) * 1.8)) + 32)}°F</p>
+          <p className="day-three-hi">{days.daily[2].temp.max}°F</p>
+          <p className="day-three-lo">{days.daily[2].temp.min}°F</p>
         </section>
         <section className="day-four">
-          <p className="day-four-date">{(new Date(days.daily[3].dt * 1000)).toString().split(" ").slice(0, 1).join(" ").toUpperCase()}</p>
+          <p className="day-four-date">{days.daily[3].dt}</p>
           <img className="day-four-icon" src={`http://openweathermap.org/img/wn/${days.daily[3].weather[0].icon}@2x.png`} alt="Weather Icon"></img>
-          <p className="day-four-hi">{Math.round(((((days.daily[3].temp.max) - 273.15) * 1.8)) + 32)}°F</p>
-          <p className="day-four-lo">{Math.round(((((days.daily[3].temp.min) - 273.15) * 1.8)) + 32)}°F</p>
+          <p className="day-four-hi">{days.daily[3].temp.max}°F</p>
+          <p className="day-four-lo">{days.daily[3].temp.min}°F</p>
         </section>
         <section className="day-five">
-          <p className="day-five-date">{(new Date(days.daily[4].dt * 1000)).toString().split(" ").slice(0, 1).join(" ").toUpperCase()}</p>
+          <p className="day-five-date">{days.daily[4].dt}</p>
           <img className="day-five-icon" src={`http://openweathermap.org/img/wn/${days.daily[4].weather[0].icon}@2x.png`} alt="Weather Icon"></img>
-          <p className="day-five-hi">{Math.round(((((days.daily[4].temp.max) - 273.15) * 1.8)) + 32)}°F</p>
-          <p className="day-five-lo">{Math.round(((((days.daily[4].temp.min) - 273.15) * 1.8)) + 32)}°F</p>
+          <p className="day-five-hi">{days.daily[4].temp.max}°F</p>
+          <p className="day-five-lo">{days.daily[4].temp.min}°F</p>
         </section>
       </section>
       </>

@@ -14,7 +14,7 @@ export const TodaysForecastDetails: FC<TodaysDetailsProps> = ({ details }) => {
     const { id, main, description, icon } = details.current.weather[0]
     return (
       <>
-      <h1>Today CITY WEATHER DETAILS {temp}</h1>
+      <h1>Today CITY WEATHER DETAILS </h1>
       </>
     )
   } else {
