@@ -14,11 +14,10 @@ export const FiveDayForecastCard: FC<FiveDayForecastCardProps> = ({ key, temp, d
       <>
       <section className="all-days">
         <section className="day-two">
-          <p className="day-two-date">{(new Date(days.daily[1].dt * 1000)).toString().split(" ").slice(0, 1).join(" ").toUpperCase()}</p>
+          <p className="day-two-date">{days.daily[1].dt}</p>
           <img className="day-two-icon" src={`http://openweathermap.org/img/wn/${days.daily[1].weather[0].icon}@2x.png`} alt="Weather Icon"></img>
-          <p className="day-two-hi">{Math.round(((((days.daily[1].temp.max) - 273.15) * 1.8)) + 32)}°F</p>
-          <p className="day-two-lo">{Math.round(((((days.daily[1].temp.min) - 273.15) * 1.8)) + 32)}°F</p>
-
+          <p className="day-two-hi">{days.daily[1].temp.max}°F</p>
+          <p className="day-two-lo">{days.daily[1].temp.min}°F</p>
         </section>
         <section className="day-three">
           <p className="day-three-date">{(new Date(days.daily[2].dt * 1000)).toString().split(" ").slice(0, 1).join(" ").toUpperCase()}</p>
