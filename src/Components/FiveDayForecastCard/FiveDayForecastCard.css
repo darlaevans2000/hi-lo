@@ -1,0 +1,48 @@
+
+.all-days {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 25px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  background: rgb(6,119,144);
+  border-radius: 20px;
+  padding: 30px;
+  background-color: rgba(6,119,144, 0.8);
+}
+
+.day-two-hi,
+.day-three-hi,
+.day-four-hi,
+.day-five-hi {
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+
+.day-two-lo,
+.day-three-lo,
+.day-four-lo,
+.day-five-lo {
+  font-size: 25px;
+}
+
+.day-two-date,
+.day-three-date,
+.day-four-date,
+.day-five-date {
+  margin: 0;
+  padding: 0;
+}
+
+.day-two-icon,
+.day-three-icon,
+.day-four-icon,
+.day-five-icon {
+  height: 20vh;
+  width: 20vh;
+}

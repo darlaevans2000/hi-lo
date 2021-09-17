@@ -101,6 +101,131 @@ export interface Forecast {
           icon: string;
         }
       ]
+    },
+    {
+      dt: number;
+      temp: {
+        min: number;
+        max: number;
+      };
+      weather: [
+        {
+          id: number;
+          main: string;
+          description: string;
+          icon: string;
+        }
+      ]
+    },
+    {
+      dt: number;
+      temp: {
+        min: number;
+        max: number;
+      };
+      weather: [
+        {
+          id: number;
+          main: string;
+          description: string;
+          icon: string;
+        }
+      ]
+    },
+    {
+      dt: number;
+      temp: {
+        min: number;
+        max: number;
+      };
+      weather: [
+        {
+          id: number;
+          main: string;
+          description: string;
+          icon: string;
+        }
+      ]
+    },
+    {
+      dt: number;
+      temp: {
+        min: number;
+        max: number;
+      };
+      weather: [
+        {
+          id: number;
+          main: string;
+          description: string;
+          icon: string;
+        }
+      ]
+    }
+  ]
+}
+
+export interface DailyForecast {
+  daily: [
+    {
+      dt: number;
+      temp: {
+        min: number;
+        max: number;
+      };
+      weather: [
+        {
+          id: number;
+          main: string;
+          description: string;
+          icon: string;
+        }
+      ]
+    },
+    {
+      dt: number;
+      temp: {
+        min: number;
+        max: number;
+      };
+      weather: [
+        {
+          id: number;
+          main: string;
+          description: string;
+          icon: string;
+        }
+      ]
+    },
+    {
+      dt: number;
+      temp: {
+        min: number;
+        max: number;
+      };
+      weather: [
+        {
+          id: number;
+          main: string;
+          description: string;
+          icon: string;
+        }
+      ]
+    },
+    {
+      dt: number;
+      temp: {
+        min: number;
+        max: number;
+      };
+      weather: [
+        {
+          id: number;
+          main: string;
+          description: string;
+          icon: string;
+        }
+      ]
     }
   ]
 }

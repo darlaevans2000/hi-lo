@@ -7,7 +7,8 @@ import { fetchCityForecast, fetchForecastDetails } from '../../apiCalls'
 import { WeatherLocation } from "../../model/Weather";
 import { Forecast } from '../../model/Weather'
 import { Route } from 'react-router-dom';
-import TodaysForecastDetails from '../TodaysForecastDetails/TodaysForecastDetails'
+import TodaysForecastDetails from '../TodaysForecastDetails/TodaysForecastDetails';
+import FiveDayForecastCardContainer from '../FiveDayForecastCardContainer/FiveDayForecastCardContainer';
 
 const App: FC = () => {
   const [cities, setCities] = useState<WeatherLocation[]>([]);
@@ -48,7 +49,7 @@ const App: FC = () => {
   return (
 
     <div className="App">
-    <Route exact path="/" render={() => {
+    <Route exact path="/hi-lo" render={() => {
       return (
         <>
         <Header />
@@ -70,7 +71,7 @@ const App: FC = () => {
         </>
       )
     }} />
-    <Route exact path="/:name" render={({ match }) => {
+    <Route exact path="/hi-lo/:name" render={({ match }) => {
       const { params } = match
       return (
         <main className='details'>
@@ -79,7 +80,9 @@ const App: FC = () => {
           details={forecastDetails}
           clickedCard={currentCity}
           />
-
+          <FiveDayForecastCardContainer
+          fiveDayDetails={forecastDetails}
+          />
         </main>
       )
     }} />

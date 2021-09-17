@@ -14,10 +14,11 @@ interface HomeCityProps {
 
 export const HomeCityCards: FC<HomeCityProps> = ({ allCities, onSelect, clickedCard, details }) => {
 console.log('forecast details', details)
+console.log('all cities', allCities)
 
   const cityCards = allCities.map(city => {
     return (
-      <NavLink className='card-link' to={`${city.name}`}>
+      <NavLink className='card-link' to={`/hi-lo/${city.name}`}>
         <HomeCard
           key={city.id}
           onSelect={() => onSelect(city)}
