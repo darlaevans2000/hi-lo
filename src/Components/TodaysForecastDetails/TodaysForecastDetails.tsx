@@ -1,6 +1,7 @@
 import { WeatherLocation, Forecast } from "../../model/Weather";
 import './TodaysForecastDetails.css'
 import React, {FC} from "react";
+import Loader from '../Loader/Loader'
 
 interface TodaysDetailsProps {
   details : Forecast | null;
@@ -90,7 +91,7 @@ export const TodaysForecastDetails: FC<TodaysDetailsProps> = ({ details, clicked
       </section>
     )
   }
-  return null;
+  return <Loader header={''}/>;
 }
 
 // <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`}/>
