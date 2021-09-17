@@ -2,6 +2,7 @@
   color: #073f51;
   padding: 1.25em;
   font-size: 1.6em;
+  border-bottom: 1px solid black;
 }
 
 .search-by-city {
