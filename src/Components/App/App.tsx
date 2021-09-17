@@ -3,9 +3,8 @@ import './App.css';
 import Header from '../Header/Header'
 import Form from '../Form/Form'
 import HomeCityCards from '../HomeCityCards/HomeCityCards'
-import { fetchCityForecast, fetchForecastDetails } from '../../apiCalls'
-import { WeatherLocation } from "../../model/Weather";
-import { Forecast } from '../../model/Weather'
+import { fetchCityForecast, fetchForecastDetails} from '../../apiCalls'
+import { WeatherLocation , Coordinates, Forecast} from "../../model/Weather";
 import { Route } from 'react-router-dom';
 import TodaysForecastDetails from '../TodaysForecastDetails/TodaysForecastDetails';
 import FiveDayForecastCardContainer from '../FiveDayForecastCardContainer/FiveDayForecastCardContainer';
@@ -35,12 +34,12 @@ const App: FC = () => {
     }
   };
 
-  let setDetails = async (currentCity: WeatherLocation) => {
-    const lat = currentCity.coord.lat.toString()
-    const lon = currentCity.coord.lon.toString()
-    const fetchedDetails = await fetchForecastDetails(lat, lon)
+  let setDetails = async (coords: Coordinates) => {
+    const fetchedDetails = await fetchForecastDetails(coords.lat.toString(), coords.lon.toString())
 
-    if (fetchedDetails) {
+    if (!fetchedDetails) {
+      setDetails(coords)
+    } else {
       setForecastDetails(fetchedDetails)
     }
   }
@@ -62,7 +61,7 @@ const App: FC = () => {
             allCities={cities}
             onSelect={city => {
               setCurrentCity(city)
-              setDetails(city)
+              setDetails(city.coord)
             }}
             clickedCard={currentCity}
             details={forecastDetails}
@@ -72,19 +71,39 @@ const App: FC = () => {
       )
     }} />
     <Route exact path="/hi-lo/:name" render={({ match }) => {
-      const { params } = match
-      return (
-        <main className='details'>
-          <Header />
-          <TodaysForecastDetails
-          details={forecastDetails}
-          clickedCard={currentCity}
-          />
-          <FiveDayForecastCardContainer
-          fiveDayDetails={forecastDetails}
-          />
-        </main>
-      )
+      if(!currentCity && !forecastDetails) {
+        addCity(match.params.name)
+        if (cities.length >= 1){
+        setCurrentCity(cities[0])
+        setDetails(cities[0].coord)
+        console.log(forecastDetails)
+        }
+         return (
+          <main className='details'>
+            <Header />
+            <TodaysForecastDetails
+            details={forecastDetails}
+            clickedCard={currentCity}
+            />
+            <FiveDayForecastCardContainer
+            fiveDayDetails={forecastDetails}
+            />
+          </main>
+        )
+      } else {
+        return (
+          <main className='details'>
+            <Header />
+            <TodaysForecastDetails
+            details={forecastDetails}
+            clickedCard={currentCity}
+            />
+            <FiveDayForecastCardContainer
+            fiveDayDetails={forecastDetails}
+            />
+          </main>
+        )
+      }
     }} />
     </div>
   );

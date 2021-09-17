@@ -3,7 +3,7 @@ import { Forecast } from './model/Weather';
 import {cleanFiveDayForecastData, cleanCurrentWeatherData} from './utils.js'
 
 const baseURL = "https://api.openweathermap.org/data/2.5/";
-const apiKey = "bd1b2da0970838af00f1dddfa1582f13";
+const apiKey = "dc464d940e53a603d97ca8d66b0afd96";
 
 export async function fetchCityForecast(cityName: string): Promise<WeatherLocation | undefined>
 {
