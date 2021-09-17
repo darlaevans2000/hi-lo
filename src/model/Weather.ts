@@ -1,3 +1,7 @@
+export interface Coordinates {
+  lon: number;
+  lat: number;
+}
 export interface WeatherLocation {
   id: number;
   name: string;
