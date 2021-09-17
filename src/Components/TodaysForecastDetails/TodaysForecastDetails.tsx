@@ -13,7 +13,7 @@ export const TodaysForecastDetails: FC<TodaysDetailsProps> = ({ details, clicked
   if (details && clickedCard) {
     const { dt, feels_like, humidity, sunrise, sunset, temp } = details.current
     const { id, main, description, icon } = details.current.weather[0]
-
+    
     //move below helper functions to cleanData file?
     var date = new Date(dt * 1000)
     var convertedDate = date.toString().split(" ").slice(0, 4).join(" ")
