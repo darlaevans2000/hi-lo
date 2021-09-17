@@ -23,6 +23,7 @@ export const cleanFiveDayForecastData = (data) => {
 
 })
   data.current.temp = Math.round(((((data.current.temp) - 273.15) * 1.8)) + 32)
+  data.current.feels_like = Math.round(((((data.current.feels_like) - 273.15) * 1.8)) + 32)
 return data
 }
 
