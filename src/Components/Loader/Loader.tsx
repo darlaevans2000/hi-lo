@@ -1,5 +1,4 @@
 import { FC } from 'react';
-// import { WeatherLocation } from "../../model/Weather";
 
 import './Loader.css'
 
