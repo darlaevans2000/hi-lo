@@ -39,6 +39,53 @@ export interface Forecast {
       }
     ]
   };
+  hourly: [
+    {
+      dt: number;
+      temp: number;
+      weather: [
+        {
+          icon: string;
+        }
+      ]
+    },
+    {
+      dt: number;
+      temp: number;
+      weather: [
+        {
+          icon: string;
+        }
+      ]
+    },
+    {
+      dt: number;
+      temp: number;
+      weather: [
+        {
+          icon: string;
+        }
+      ]
+    },
+    {
+      dt: number;
+      temp: number;
+      weather: [
+        {
+          icon: string;
+        }
+      ]
+    },
+    {
+      dt: number;
+      temp: number;
+      weather: [
+        {
+          icon: string;
+        }
+      ]
+    }
+  ];
   daily: [
     {
       dt: number;

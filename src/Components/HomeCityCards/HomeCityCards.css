@@ -5,6 +5,10 @@
   grid-gap: 1em;
 }
 
+.card-link {
+  text-decoration: none;
+}
+
 @media screen and (max-width: 850px) {
   .cities-container {
     grid-template-columns: repeat(3, 1fr);

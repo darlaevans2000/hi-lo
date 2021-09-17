@@ -3,7 +3,7 @@ import './HomeCityCards.css'
 
 import { WeatherLocation, Forecast } from "../../model/Weather";
 import HomeCard from "../HomeCard/HomeCard"
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 interface HomeCityProps {
   allCities: WeatherLocation[];
@@ -18,7 +18,7 @@ console.log('all cities', allCities)
 
   const cityCards = allCities.map(city => {
     return (
-      <Link to={`${city.name}`}>
+      <NavLink className='card-link' to={`/hi-lo/${city.name}`}>
         <HomeCard
           key={city.id}
           onSelect={() => onSelect(city)}
@@ -30,7 +30,7 @@ console.log('all cities', allCities)
           description={city.weather[0].description}
           icon={city.weather[0].icon}
         />
-      </Link>
+      </NavLink>
     );
   });
   return <div className="cities-container">{cityCards}</div>;

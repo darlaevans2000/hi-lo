@@ -1,6 +1,5 @@
 
 .all-days {
-
   display: flex;
   justify-content: space-around;
   margin-top: 200px;
@@ -14,15 +13,6 @@
   border-radius: 20px;
   padding: 30px;
   background-color: rgba(6,119,144, 0.8);
-
-
-}
-
-.day-two,
-.day-three,
-.day-four,
-.day-five {
-
 }
 
 .day-two-hi,
@@ -47,7 +37,6 @@
 .day-five-date {
   margin: 0;
   padding: 0;
-
 }
 
 .day-two-icon,
