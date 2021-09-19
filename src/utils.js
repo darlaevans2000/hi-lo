@@ -32,9 +32,9 @@ var NodeGeocoder = require('node-geocoder');
 
 var options = {
   provider: 'google',
-  httpAdapter: 'https', // Default
-  apiKey: 'AIzaSyAOYBdRz8CY8Qrj75oQCwSh1GIMEBnEbt0', // for Mapquest, OpenCage, Google Premier
-  formatter: 'json' // 'gpx', 'string', ...
+  httpAdapter: 'https',
+  apiKey: 'AIzaSyAOYBdRz8CY8Qrj75oQCwSh1GIMEBnEbt0',
+  formatter: 'json'
 };
 
 var geocoder = NodeGeocoder(options);

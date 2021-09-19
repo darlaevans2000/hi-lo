@@ -31,29 +31,31 @@ export const Form: FC<SearchCityProps> = ({onSearch}) => {
 
   return (
     <div className='searchForm'>
+      <form>
       <PlacesAutocomplete
         value={cityInput}
         onChange={setCityInput}
         onSelect={handleSelect}
         searchOptions={searchOptions}
         >{({getInputProps, suggestions, getSuggestionItemProps, loading}) => (
-        <div>
+        <div className="autocomplete">
           <label>Search by City  </label>
-          <input id="searchInput" {...getInputProps({placeholder: "Type City"})}/>
-          <div>
-            {loading ? <div>loading...</div> : null}
+          <input className="my-input" id="searchInput" {...getInputProps({placeholder: "Type City"})}/>
+          <div className="suggestions">
+            {loading ? <div>Loading...</div> : null}
             {suggestions.map((suggestion) => {
               const style = suggestion.active
                ? {backgroundColor: "#668b8a"}
                :  {backgroundColor: "#ffff"};
                
-              return <div{...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</div>
+              return <li{...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</li>
             })}
-             <button className="search-btn" type='submit' onClick={addCity} disabled={disableSearch}>Search</button>
           </div>
+             <button className="search-btn" type='submit' onClick={addCity} disabled={disableSearch}>Add</button>
         </div>
         )}
       </PlacesAutocomplete>
+      </form>
       </div>
   )
 }
