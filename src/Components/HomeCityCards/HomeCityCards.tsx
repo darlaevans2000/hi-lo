@@ -4,6 +4,7 @@ import './HomeCityCards.css'
 import { WeatherLocation, Forecast } from "../../model/Weather";
 import HomeCard from "../HomeCard/HomeCard"
 import { NavLink } from 'react-router-dom';
+import { getState } from '../../utils.js'
 
 interface HomeCityProps {
   allCities: WeatherLocation[];
@@ -15,8 +16,9 @@ interface HomeCityProps {
 export const HomeCityCards: FC<HomeCityProps> = ({ allCities, onSelect, clickedCard, details }) => {
 console.log('forecast details', details)
 console.log('all cities', allCities)
+const cityCards = allCities.map(city => {
+  console.log(getState(city.coord))
 
-  const cityCards = allCities.map(city => {
     return (
       <NavLink className='card-link' to={`/hi-lo/${city.name}`}>
         <HomeCard

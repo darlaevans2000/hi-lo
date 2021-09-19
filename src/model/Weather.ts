@@ -2,6 +2,12 @@ export interface Coordinates {
   lon: number;
   lat: number;
 }
+export interface State {
+   level1long: string | undefined;
+    level1short: string | undefined;
+    level2long: string | undefined;
+    level2short: string | undefined;
+}
 export interface WeatherLocation {
   id: number;
   name: string;

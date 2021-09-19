@@ -28,6 +28,24 @@ return data
 }
 
 
+var NodeGeocoder = require('node-geocoder');
+
+var options = {
+  provider: 'google',
+  httpAdapter: 'https',
+  apiKey: 'AIzaSyAOYBdRz8CY8Qrj75oQCwSh1GIMEBnEbt0',
+  formatter: 'json'
+};
+
+var geocoder = NodeGeocoder(options);
+
+export const getState = (coords) => {
+    geocoder.reverse(coords, function(err, res) {
+      console.log("State:", res[0].administrativeLevels.level1long);
+  })
+}
+
+
 
 /*export const cleanCurrentWeatherData = (data) => {
   if (Array.isArray(data)) {
