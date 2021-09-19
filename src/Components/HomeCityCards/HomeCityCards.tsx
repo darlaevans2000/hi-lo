@@ -17,6 +17,7 @@ console.log('forecast details', details)
 console.log('all cities', allCities)
 
   const cityCards = allCities.map(city => {
+    console.log(city)
     return (
       <NavLink className='card-link' to={`/hi-lo/${city.name}`}>
         <HomeCard

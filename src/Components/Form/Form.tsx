@@ -25,16 +25,21 @@ export const Form: FC<SearchCityProps> = ({onSearch}) => {
     setCityInput('');
   };
 
+  const searchOptions = {
+  types: ['(cities)']
+}
+
   return (
     <div className='searchForm'>
       <PlacesAutocomplete
         value={cityInput}
         onChange={setCityInput}
         onSelect={handleSelect}
+        searchOptions={searchOptions}
         >{({getInputProps, suggestions, getSuggestionItemProps, loading}) => (
         <div>
           <label>Search by City  </label>
-          <input {...getInputProps({placeholder: "Type City"})}/>
+          <input id="searchInput" {...getInputProps({placeholder: "Type City"})}/>
           <div>
             {loading ? <div>loading...</div> : null}
             {suggestions.map((suggestion) => {
