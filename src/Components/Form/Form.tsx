@@ -31,7 +31,7 @@ export const Form: FC<SearchCityProps> = ({onSearch}) => {
 
   return (
     <div className='searchForm'>
-      <form>
+      <form className="search-by-city">
       <PlacesAutocomplete
         value={cityInput}
         onChange={setCityInput}
