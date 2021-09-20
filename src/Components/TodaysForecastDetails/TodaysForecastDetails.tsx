@@ -2,6 +2,7 @@ import { WeatherLocation, Forecast } from "../../model/Weather";
 import './TodaysForecastDetails.css'
 import React, {FC} from "react";
 import Loader from '../Loader/Loader'
+import { NavLink } from 'react-router-dom';
 
 interface TodaysDetailsProps {
   details : Forecast | null;
@@ -13,7 +14,7 @@ export const TodaysForecastDetails: FC<TodaysDetailsProps> = ({ details, clicked
   if (details && clickedCard) {
     const { dt, feels_like, humidity, sunrise, sunset, temp } = details.current
     const { id, main, description, icon } = details.current.weather[0]
-    
+
     //move below helper functions to cleanData file?
     var date = new Date(dt * 1000)
     var convertedDate = date.toString().split(" ").slice(0, 4).join(" ")
@@ -25,6 +26,8 @@ export const TodaysForecastDetails: FC<TodaysDetailsProps> = ({ details, clicked
     }
 
     return (
+      <div>
+      <NavLink className='go-back' to="/hi-lo">Main View</NavLink>
       <section className='todays-container'>
         <article className='todays-details'>
           <h1 className='todays-header'>Detailed forecast for {clickedCard.name}</h1>
@@ -89,6 +92,7 @@ export const TodaysForecastDetails: FC<TodaysDetailsProps> = ({ details, clicked
           </section>
         </article>
       </section>
+      </div>
     )
   }
   return <Loader header={''}/>;
