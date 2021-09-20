@@ -37,6 +37,7 @@ const App: FC = () => {
       setWarning(`Location '${cityName}' is already in the list.`);
     } else {
       setCities([fetchedCity, ...cities]);
+      setStorage(fetchedCity.id, fetchedCity)
     }
   };
 
@@ -52,6 +53,32 @@ const App: FC = () => {
       setForecastDetails(fetchedDetails);
     }
   };
+
+  useEffect(() => {
+    let values = Object.keys(localStorage)
+    return values.forEach(value => {
+      let cityValue: any = localStorage.getItem(`${value}`)
+      let parsedCity = JSON.parse(cityValue)
+      setCities([parsedCity, ...cities])
+      cities.push(parsedCity)
+    })
+  }, [])
+
+  let deleteCity = (id: number) => {
+    const filteredCity: any = cities.find(city => city.id === id)
+    localStorage.removeItem(filteredCity.id)
+    deleteDisplay(id)
+  }
+
+  let deleteDisplay = (id: number) => {
+    const filteredCities: any = cities.filter(city => city.id !== id)
+    setCities(filteredCities)
+  }
+
+  let setStorage = (id: number, city: any) => {
+    let stringifiedCity = JSON.stringify(city)
+    localStorage.setItem(`${id}`, stringifiedCity)
+  }
 
   return (
     <div className="App">
@@ -79,6 +106,7 @@ const App: FC = () => {
                     clickedCard={currentCity}
                     details={forecastDetails}
                     stateStrings={stateStrings}
+                    deleteCity={deleteCity}
                   />
                 )}
               </main>
