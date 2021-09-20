@@ -1,27 +1,31 @@
 import React, { FC, useState } from 'react'
 import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng
-} from 'react-places-autocomplete'
+  geocodeByAddress } from 'react-places-autocomplete'
 import './Form.css'
 interface SearchCityProps {
   onSearch: (cityInput: string) => void;
 }
 
 export const Form: FC<SearchCityProps> = ({onSearch}) => {
-  const [cityInput, setCityInput] = useState('');
+  const [cityInput, setCityInput] = useState<string>('');
   const disableSearch = cityInput.trim() === '';
-  const [coordinates, setCoordinates] = useState({});
 
   const handleSelect = async (value:string) => {
     const results = await geocodeByAddress(value)
-    const latLng = await getLatLng(results[0])
-    setCityInput(value)
-    setCoordinates(latLng)
+    setCityInput(results[0].formatted_address)
   };
 
+  const cleanInput = (input: string) => {
+    if (input.includes('USA')) {
+      let newInput = input.split('')
+      let slicedInput = newInput.slice(0, -1)
+      return slicedInput.join('')
+    }
+    return input;
+  }
+
   const addCity = () => {
-    onSearch(cityInput);
+    onSearch(cleanInput(cityInput));
     setCityInput('');
   };
 
@@ -60,5 +64,6 @@ export const Form: FC<SearchCityProps> = ({onSearch}) => {
       </div>
   )
 }
+
 
 export default Form

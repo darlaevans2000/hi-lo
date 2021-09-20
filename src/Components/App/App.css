@@ -6,3 +6,10 @@
   margin-top: 2%;
   font-size: 1.2em;
 }
+
+.error,
+.warning {
+  font-size: 1.5em;
+  color: #EC6E4B;
+  margin: .5%;
+}
