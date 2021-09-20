@@ -34,8 +34,7 @@ describe('Weather Forecast is Loading Status', () => {
     it('It should be able to click header to return back to home page', () => {
       cy.get('h1')
             .click()
-            .url().should('eq', 'http://localhost:3000/hi-lo/')
-            
+            .url().should('eq', 'http://localhost:3000/hi-lo')
     })
 
 

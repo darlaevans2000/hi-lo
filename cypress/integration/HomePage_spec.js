@@ -1,8 +1,6 @@
-describe("User Movie Area Flows", () => {
+describe("User Weather Area Flows", () => {
 
   describe("Main Page Render", () => {
-    //Going to need to stub this data ASAP because the data changes day to day, which would cause an error. Or we can
-    // keep it how it is of checking if a card rendered w/ value of city name. (not specific to date data)
     it("Should have a header with text Hi-Lo Weather on load", () => {
       cy.loadHomePage();
       cy.get("h1").contains("hi-lo weather ☀️");

@@ -31,7 +31,7 @@ import denverData from '../fixtures/denver-data.json';
 import denverForecastData from '../fixtures/denver-forecast-data.json';
 
 Cypress.Commands.add('loadHomePage', () => {
-    cy.visit('http://localhost:3000/hi-lo/')
+    cy.visit('http://localhost:3000/hi-lo')
 })
 
 
