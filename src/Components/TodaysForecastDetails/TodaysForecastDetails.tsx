@@ -46,7 +46,7 @@ export const TodaysForecastDetails: FC<TodaysDetailsProps> = ({ details, clicked
             </div>
             <div className='right'>
               <section className='hourly-forecast'>
-                <img src={`http://openweathermap.org/img/wn/${details.hourly[0].weather[0].icon}@2x.png`}/>
+                <img src={`http://openweathermap.org/img/wn/${details.hourly[0].weather[0].icon}@2x.png`} alt='Weather Icon'/>
                 <ul>
                   <li>Time</li>
                   <li>{timeConvert(details.hourly[0].dt)}</li>
@@ -55,7 +55,7 @@ export const TodaysForecastDetails: FC<TodaysDetailsProps> = ({ details, clicked
                 </ul>
               </section>
               <section className='hourly-forecast'>
-                <img src={`http://openweathermap.org/img/wn/${details.hourly[1].weather[0].icon}@2x.png`}/>
+                <img src={`http://openweathermap.org/img/wn/${details.hourly[1].weather[0].icon}@2x.png`} alt='Weather Icon'/>
                 <ul>
                   <li>Time</li>
                   <li>{timeConvert(details.hourly[1].dt)}</li>
@@ -64,7 +64,7 @@ export const TodaysForecastDetails: FC<TodaysDetailsProps> = ({ details, clicked
                 </ul>
               </section>
               <section className='hourly-forecast'>
-                <img src={`http://openweathermap.org/img/wn/${details.hourly[2].weather[0].icon}@2x.png`}/>
+                <img src={`http://openweathermap.org/img/wn/${details.hourly[2].weather[0].icon}@2x.png`} alt='Weather Icon'/>
                 <ul>
                   <li>Time</li>
                   <li>{timeConvert(details.hourly[2].dt)}</li>
@@ -73,7 +73,7 @@ export const TodaysForecastDetails: FC<TodaysDetailsProps> = ({ details, clicked
                 </ul>
               </section>
               <section className='hourly-forecast'>
-                <img src={`http://openweathermap.org/img/wn/${details.hourly[3].weather[0].icon}@2x.png`}/>
+                <img src={`http://openweathermap.org/img/wn/${details.hourly[3].weather[0].icon}@2x.png`} alt='Weather Icon'/>
                 <ul>
                   <li>Time</li>
                   <li>{timeConvert(details.hourly[3].dt)}</li>
@@ -82,7 +82,7 @@ export const TodaysForecastDetails: FC<TodaysDetailsProps> = ({ details, clicked
                 </ul>
               </section>
               <section className='hourly-forecast'>
-                <img src={`http://openweathermap.org/img/wn/${details.hourly[4].weather[0].icon}@2x.png`}/>
+                <img src={`http://openweathermap.org/img/wn/${details.hourly[4].weather[0].icon}@2x.png`} alt='Weather Icon'/>
                 <ul>
                   <li>Time</li>
                   <li>{timeConvert(details.hourly[4].dt)}</li>
@@ -99,8 +99,5 @@ export const TodaysForecastDetails: FC<TodaysDetailsProps> = ({ details, clicked
   }
   return <Loader header={''}/>;
 }
-
-// <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`}/>
-
 
 export default TodaysForecastDetails

@@ -15,7 +15,7 @@ const App: FC = () => {
   const [warning, setWarning] = useState("");
   const [currentCity, setCurrentCity] = useState<WeatherLocation | null>(null);
   const [forecastDetails, setForecastDetails] = useState<Forecast | null>(null);
-  const [stateString, setStateString] = useState<State | null>(null);;
+  const [stateString, setStateString] = useState<State | null>(null);
 
   const resetAlerts = () => {
     setError("");
