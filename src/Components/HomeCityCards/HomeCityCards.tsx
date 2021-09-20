@@ -11,9 +11,10 @@ interface HomeCityProps {
   clickedCard: WeatherLocation | null;
   details: Forecast | null;
   stateStrings: string[];
+  deleteCity: (id: number) => void;
 }
 
-export const HomeCityCards: FC<HomeCityProps> = ({ allCities, onSelect, clickedCard, details, stateStrings }) => {
+export const HomeCityCards: FC<HomeCityProps> = ({ allCities, onSelect, clickedCard, details, stateStrings, deleteCity }) => {
 
 const cityCards = allCities.map((city, i) => {
 
@@ -21,6 +22,7 @@ const cityCards = allCities.map((city, i) => {
       <NavLink className='card-link' to={`/hi-lo/${city.name}`}>
         <HomeCard
           key={city.id}
+          id={city.id}
           onSelect={() => onSelect(city)}
           clickedCard={city}
           details={details}
@@ -30,12 +32,12 @@ const cityCards = allCities.map((city, i) => {
           description={city.weather[0].description}
           icon={city.weather[0].icon}
           stateString={stateStrings[i]}
+          deleteCity={deleteCity}
         />
       </NavLink>
     );
   });
   return <div className="cities-container">{cityCards}</div>;
 };
-
 
 export default HomeCityCards;
