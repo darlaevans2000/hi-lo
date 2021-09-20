@@ -10,14 +10,17 @@ interface SearchCityProps {
 
 export const Form: FC<SearchCityProps> = ({onSearch}) => {
   const [cityInput, setCityInput] = useState('');
-  const disableSearch = cityInput.trim() === '';
   const [coordinates, setCoordinates] = useState({});
+  const disableSearch = cityInput.trim() === '';
 
   const handleSelect = async (value:string) => {
     const results = await geocodeByAddress(value)
+    console.log('result', results)
+    console.log('ci', cityInput)
     const latLng = await getLatLng(results[0])
     setCityInput(value)
     setCoordinates(latLng)
+    console.log('coords', coordinates)
   };
 
   const addCity = () => {
