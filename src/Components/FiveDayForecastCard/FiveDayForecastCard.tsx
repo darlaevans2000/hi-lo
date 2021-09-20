@@ -12,6 +12,7 @@ export const FiveDayForecastCard: FC<FiveDayForecastCardProps> = ({ key, temp, d
   if (days) {
     return (
       <>
+      <h4 className='fiveday-title'>the upcoming days..</h4>
       <section className="all-days">
         <section className="day-two">
           <p className="day-two-date">{days.daily[1].dt}</p>
@@ -40,24 +41,8 @@ export const FiveDayForecastCard: FC<FiveDayForecastCardProps> = ({ key, temp, d
       </section>
       </>
     )
-  } else {
-    return (
-      null
-    )
   }
-
+  return null;
 }
 
-
-
-
-
-
 export default FiveDayForecastCard;
-
-
-
-  /*<p className="day-two-description">{days.daily[1].weather[0].description}</p>
-  <p className="day-three-description">{days.daily[2].weather[0].description}</p>
-    <p className="day-four-description">{days.daily[3].weather[0].description}</p>
-    <p className="day-five-description">{days.daily[4].weather[0].description}</p>*/

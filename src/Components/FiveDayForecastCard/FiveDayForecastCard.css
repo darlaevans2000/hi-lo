@@ -1,16 +1,20 @@
 
+.fiveday-title {
+  color: #005470;
+  font-size: 2em;
+  text-align: left;
+  margin-left: 1%;
+}
+
 .all-days {
   display: flex;
-  justify-content: space-around;
-  margin-top: 25px;
-  margin-left: 20px;
-  margin-right: 20px;
+  justify-content: space-evenly;
+  width: 100vw;
   font-family: 'Roboto', sans-serif;
-  font-size: 40px;
+  font-size: 2.5em;
   font-weight: bold;
   color: white;
   background: rgb(6,119,144);
-  border-radius: 20px;
   padding: 30px;
   background-color: rgba(6,119,144, 0.8);
 }
@@ -20,7 +24,7 @@
 .day-four-hi,
 .day-five-hi {
   font-size: 25px;
-  margin-bottom: 5px;
+  margin-top: -15%;
 }
 
 
@@ -43,6 +47,15 @@
 .day-three-icon,
 .day-four-icon,
 .day-five-icon {
-  height: 20vh;
-  width: 20vh;
+  height: 16vh;
+  width: 16vh;
+  margin-top: -15%;
+}
+
+.day-two,
+.day-three,
+.day-four,
+.day-five {
+  margin: 0;
+  /* border: 2px solid red; */
 }

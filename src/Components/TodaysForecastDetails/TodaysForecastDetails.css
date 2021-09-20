@@ -1,12 +1,10 @@
 .todays-header {
-  font-size: 2.2em;
+  font-size: 2em;
   margin-top: .5em;
 }
 
 .todays-container {
-  background-color: #005470;
-  color: whitesmoke;
-  border: 5px solid #EC6E4B;
+  color: #005470;
   border-radius: 1%;
   height: 50%;
   margin-left: 15%;
@@ -15,7 +13,7 @@
 }
 
 .converted-date {
-  font-size: 2em;
+  font-size: 1.8em;
 }
 
 .column-section {
@@ -61,19 +59,10 @@ ul {
 }
 
 .hourly-forecast {
-  background-color: black;
+  color: whitesmoke;
+  background-color: #4B93A6;
   border-radius: 5%;
   height: 70%;
   width: 90%;
   margin: 2%;
 }
-/* .sunrise,
-.sunset,
-.curr-temp,
-.feels-like-temp,
-.humidity,
-.descrip,
-.high,
-.low {
-  color: whitesmoke;
-} */

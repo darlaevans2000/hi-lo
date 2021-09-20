@@ -1,3 +1,8 @@
 .App {
   text-align: center;
 }
+
+.no-city {
+  margin-top: 2%;
+  font-size: 1.2em;
+}
