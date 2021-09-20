@@ -7,12 +7,10 @@ interface FiveDayForecastCardContainerProps {
 }
 
 export const FiveDayForecastCardContainer: FC<FiveDayForecastCardContainerProps> = ( {fiveDayDetails} ) => {
-    console.log("5 day details", fiveDayDetails)
   if (fiveDayDetails) {
     const { dt, feels_like, humidity, sunrise, sunset, temp } = fiveDayDetails.current
     const { id, main, description, icon } = fiveDayDetails.current.weather[0]
     const dailyArray = fiveDayDetails.daily
-    console.log("DAILY>>", dailyArray)
 
     return (
       <>
@@ -23,11 +21,8 @@ export const FiveDayForecastCardContainer: FC<FiveDayForecastCardContainerProps>
       />
       </>
     )
-  } else {
-    return (
-      null
-    )
   }
+  return null;
 }
 
 

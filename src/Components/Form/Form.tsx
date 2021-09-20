@@ -1,27 +1,31 @@
 import React, { FC, useState } from 'react'
 import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng
-} from 'react-places-autocomplete'
+  geocodeByAddress } from 'react-places-autocomplete'
 import './Form.css'
 interface SearchCityProps {
   onSearch: (cityInput: string) => void;
 }
 
 export const Form: FC<SearchCityProps> = ({onSearch}) => {
-  const [cityInput, setCityInput] = useState('');
+  const [cityInput, setCityInput] = useState<string>('');
   const disableSearch = cityInput.trim() === '';
-  const [coordinates, setCoordinates] = useState({});
- 
+
   const handleSelect = async (value:string) => {
     const results = await geocodeByAddress(value)
-    const latLng = await getLatLng(results[0])
-    setCityInput(value)
-    setCoordinates(latLng)
+    setCityInput(results[0].formatted_address)
   };
 
+  const cleanInput = (input: string) => {
+    if (input.includes('USA')) {
+      let newInput = input.split('')
+      let slicedInput = newInput.slice(0, -1)
+      return slicedInput.join('')
+    }
+    return input;
+  }
+
   const addCity = () => {
-    onSearch(cityInput);
+    onSearch(cleanInput(cityInput));
     setCityInput('');
   };
 
@@ -37,21 +41,22 @@ export const Form: FC<SearchCityProps> = ({onSearch}) => {
         onChange={setCityInput}
         onSelect={handleSelect}
         searchOptions={searchOptions}
-        >{({getInputProps, suggestions, getSuggestionItemProps, loading}) => (
+        >
+        {({getInputProps, suggestions, getSuggestionItemProps, loading}) => (
         <div className="autocomplete">
-          <label>Search by City  </label>
+          <label>Search by City</label>
           <input className="my-input" id="searchInput" {...getInputProps({placeholder: "Type City"})}/>
+          <button className="search-btn" type='submit' onClick={addCity} disabled={disableSearch}>add</button>
           <div className="suggestions">
             {loading ? <div>Loading...</div> : null}
             {suggestions.map((suggestion) => {
               const style = suggestion.active
                ? {backgroundColor: "#668b8a"}
                :  {backgroundColor: "#ffff"};
-               
+
               return <li{...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</li>
             })}
           </div>
-             <button className="search-btn" type='submit' onClick={addCity} disabled={disableSearch}>Add</button>
         </div>
         )}
       </PlacesAutocomplete>
@@ -59,5 +64,6 @@ export const Form: FC<SearchCityProps> = ({onSearch}) => {
       </div>
   )
 }
+
 
 export default Form

@@ -6,6 +6,8 @@
   background-color: #005470;
   color: white;
   padding: 5%;
+  height: 43vh;
+  width: 25vw;
 }
 
 .city-card:hover {
@@ -16,8 +18,12 @@
   box-shadow: 0px 0px 10px 0px #FFF;
 }
 
+.city-img {
+  margin-top: 1px;
+}
+
 .city-name {
-  font-size: 2em;
+  font-size: 1.8em;
   letter-spacing: 5px;
 }
 

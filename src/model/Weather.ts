@@ -221,21 +221,6 @@ export interface DailyForecast {
           icon: string;
         }
       ]
-    },
-    {
-      dt: number;
-      temp: {
-        min: number;
-        max: number;
-      };
-      weather: [
-        {
-          id: number;
-          main: string;
-          description: string;
-          icon: string;
-        }
-      ]
     }
   ]
 }
