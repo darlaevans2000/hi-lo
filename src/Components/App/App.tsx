@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 import Form from "../Form/Form";
 import HomeCityCards from "../HomeCityCards/HomeCityCards";
 import { fetchCityForecast, fetchForecastDetails } from "../../apiCalls";
-import { WeatherLocation, Coordinates, Forecast, State } from "../../model/Weather";
+import { WeatherLocation, Coordinates, Forecast } from "../../model/Weather";
 import { Route } from "react-router-dom";
 import TodaysForecastDetails from "../TodaysForecastDetails/TodaysForecastDetails";
 import FiveDayForecastCardContainer from "../FiveDayForecastCardContainer/FiveDayForecastCardContainer";
@@ -15,7 +15,6 @@ const App: FC = () => {
   const [warning, setWarning] = useState("");
   const [currentCity, setCurrentCity] = useState<WeatherLocation | null>(null);
   const [forecastDetails, setForecastDetails] = useState<Forecast | null>(null);
-  const [stateString, setStateString] = useState<State | null>(null);
 
   const resetAlerts = () => {
     setError("");

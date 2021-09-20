@@ -7,7 +7,6 @@ const apiKey = "dc464d940e53a603d97ca8d66b0afd96";
 
 export async function fetchCityForecast(cityName: string): Promise<WeatherLocation | undefined>
 {
-  console.log(cityName)
   const result = await fetch(`${baseURL}weather?q=${cityName}&appid=${apiKey}`)
 
   if (result.status === 404) return undefined;
