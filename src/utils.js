@@ -26,38 +26,3 @@ export const cleanFiveDayForecastData = (data) => {
   data.current.feels_like = Math.round(((((data.current.feels_like) - 273.15) * 1.8)) + 32)
 return data
 }
-
-
-// var NodeGeocoder = require('node-geocoder');
-//
-// var options = {
-//   provider: 'google',
-//   httpAdapter: 'https',
-//   apiKey: 'AIzaSyAOYBdRz8CY8Qrj75oQCwSh1GIMEBnEbt0',
-//   formatter: 'json'
-// };
-//
-// var geocoder = NodeGeocoder(options);
-//
-// export const getState = (coords) => {
-//     geocoder.reverse(coords, function(err, res) {
-//       console.log("State:", res[0].administrativeLevels.level1long);
-//   })
-// }
-
-
-
-/*export const cleanCurrentWeatherData = (data) => {
-  if (Array.isArray(data)) {
-    data.forEach((city) => {
-      const newCurrentHiTemp = Math.round(((((city.main.temp_max) - 273.15) * 1.8)) + 32);
-      city.main.temp_max = newCurrentHiTemp
-      const newCurrentLoTemp = Math.round(((((city.main.temp_min) - 273.15) * 1.8)) + 32);
-      city.main.temp_min = newCurrentHiTemp
-    })
-  } else {
-    data.main.temp_max = Math.round(((((data.main.temp_max) - 273.15) * 1.8)) + 32);
-    data.main.temp_min = Math.round(((((data.main.temp_min) - 273.15) * 1.8)) + 32);
-  }
-  return data
-} */
