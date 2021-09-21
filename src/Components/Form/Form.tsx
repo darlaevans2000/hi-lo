@@ -54,7 +54,7 @@ export const Form: FC<SearchCityProps> = ({onSearch}) => {
                ? {backgroundColor: "#668b8a"}
                :  {backgroundColor: "#ffff"};
 
-              return <li{...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</li>
+              return <li {...getSuggestionItemProps(suggestion, {style})}>{suggestion.description}</li>
             })}
           </div>
         </div>
