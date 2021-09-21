@@ -73,5 +73,10 @@ TypeScript, React, React Router, Fetch/Async, Cypress, JSON, HTML5, SASS, React-
  <td><img src="https://avatars.githubusercontent.com/u/73204436?v=4" alt="Erica Spitz GitHub Picture"
  width="150" height="auto" /></td>
      <tr>
+  <td> Natalie McIntyre <a href="https://github.com/nataliemcintyre2021">GH</td>
+    </tr>
+ <td><img src="https://avatars.githubusercontent.com/u/78229679?v=4" alt="Natalie McIntyre GitHub Picture"
+ width="150" height="auto" /></td>
+</table>  
 
   
