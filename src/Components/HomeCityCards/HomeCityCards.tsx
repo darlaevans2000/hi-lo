@@ -1,9 +1,9 @@
 import { FC } from "react";
-import './HomeCityCards.css'
+import "./HomeCityCards.css";
 
 import { WeatherLocation, Forecast } from "../../model/Weather";
-import HomeCard from "../HomeCard/HomeCard"
-import { NavLink } from 'react-router-dom';
+import HomeCard from "../HomeCard/HomeCard";
+import { NavLink } from "react-router-dom";
 
 interface HomeCityProps {
   allCities: WeatherLocation[];
@@ -13,12 +13,15 @@ interface HomeCityProps {
   deleteCity: (id: number) => void;
 }
 
-export const HomeCityCards: FC<HomeCityProps> = ({ allCities, onSelect, details, deleteCity }) => {
-
-const cityCards = allCities.map(city => {
-
+export const HomeCityCards: FC<HomeCityProps> = ({
+  allCities,
+  onSelect,
+  details,
+  deleteCity,
+}) => {
+  const cityCards = allCities.map((city) => {
     return (
-      <NavLink className='card-link' to={`/hi-lo/cities/${city.name}`}>
+      <NavLink className="card-link" to={`/hi-lo/cities/${city.name}`}>
         <HomeCard
           key={city.id}
           id={city.id}

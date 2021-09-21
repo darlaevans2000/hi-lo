@@ -4,30 +4,32 @@ export interface Coordinates {
 }
 
 export interface State {
-   level1long: string | undefined;
-    level1short: string | undefined;
-    level2long: string | undefined;
-    level2short: string | undefined;
+  level1long: string | undefined;
+  level1short: string | undefined;
+  level2long: string | undefined;
+  level2short: string | undefined;
 }
 
 export interface WeatherLocation {
   id: number;
   name: string;
   coord: {
-      lon: number;
-      lat: number;
+    lon: number;
+    lat: number;
   };
-  weather: [{
-    description: string;
-    icon: string;
-    id: number;
-    main: string;
-  }];
+  weather: [
+    {
+      description: string;
+      icon: string;
+      id: number;
+      main: string;
+    }
+  ];
   main: {
     temp: number;
     temp_max: number;
     temp_min: number;
-  }
+  };
 }
 
 export interface Forecast {
@@ -49,7 +51,7 @@ export interface Forecast {
         description: string;
         icon: string;
       }
-    ]
+    ];
   };
   hourly: [
     {
@@ -59,7 +61,7 @@ export interface Forecast {
         {
           icon: string;
         }
-      ]
+      ];
     },
     {
       dt: number;
@@ -68,7 +70,7 @@ export interface Forecast {
         {
           icon: string;
         }
-      ]
+      ];
     },
     {
       dt: number;
@@ -77,7 +79,7 @@ export interface Forecast {
         {
           icon: string;
         }
-      ]
+      ];
     },
     {
       dt: number;
@@ -86,7 +88,7 @@ export interface Forecast {
         {
           icon: string;
         }
-      ]
+      ];
     },
     {
       dt: number;
@@ -95,7 +97,7 @@ export interface Forecast {
         {
           icon: string;
         }
-      ]
+      ];
     }
   ];
   daily: [
@@ -112,7 +114,7 @@ export interface Forecast {
           description: string;
           icon: string;
         }
-      ]
+      ];
     },
     {
       dt: number;
@@ -127,7 +129,7 @@ export interface Forecast {
           description: string;
           icon: string;
         }
-      ]
+      ];
     },
     {
       dt: number;
@@ -142,7 +144,7 @@ export interface Forecast {
           description: string;
           icon: string;
         }
-      ]
+      ];
     },
     {
       dt: number;
@@ -157,7 +159,7 @@ export interface Forecast {
           description: string;
           icon: string;
         }
-      ]
+      ];
     },
     {
       dt: number;
@@ -172,9 +174,9 @@ export interface Forecast {
           description: string;
           icon: string;
         }
-      ]
+      ];
     }
-  ]
+  ];
 }
 
 export interface DailyForecast {
@@ -192,7 +194,7 @@ export interface DailyForecast {
           description: string;
           icon: string;
         }
-      ]
+      ];
     },
     {
       dt: number;
@@ -207,7 +209,7 @@ export interface DailyForecast {
           description: string;
           icon: string;
         }
-      ]
+      ];
     },
     {
       dt: number;
@@ -222,7 +224,7 @@ export interface DailyForecast {
           description: string;
           icon: string;
         }
-      ]
+      ];
     }
-  ]
+  ];
 }

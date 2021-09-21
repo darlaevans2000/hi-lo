@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "../Header/Header";
 import Form from "../Form/Form";
 import HomeCityCards from "../HomeCityCards/HomeCityCards";
-import Error from "../Error/Error"
+import Error from "../Error/Error";
 import { fetchCityForecast, fetchForecastDetails } from "../../apiCalls";
 import { WeatherLocation, Coordinates, Forecast } from "../../model/Weather";
 import { Route, Switch } from "react-router-dom";
@@ -32,7 +32,7 @@ const App: FC = () => {
       setWarning(`Location '${cityName}' is already in the list.`);
     } else {
       setCities([fetchedCity, ...cities]);
-      setStorage(fetchedCity.id, fetchedCity)
+      setStorage(fetchedCity.id, fetchedCity);
     }
   };
 
@@ -50,91 +50,93 @@ const App: FC = () => {
   };
 
   useEffect(() => {
-    let values = Object.keys(localStorage)
-    return values.forEach(value => {
-      let cityValue: any = localStorage.getItem(`${value}`)
-      let parsedCity = JSON.parse(cityValue)
-      setCities([parsedCity, ...cities])
-      cities.push(parsedCity)
-    })
-  },[])
+    let values = Object.keys(localStorage);
+    return values.forEach((value) => {
+      let cityValue: any = localStorage.getItem(`${value}`);
+      let parsedCity = JSON.parse(cityValue);
+      setCities([parsedCity, ...cities]);
+      cities.push(parsedCity);
+    });
+  }, []);
 
   let deleteCity = (id: number) => {
-    const filteredCity: any = cities.find(city => city.id === id)
-    localStorage.removeItem(filteredCity.id)
-    deleteDisplay(id)
-  }
+    const filteredCity: any = cities.find((city) => city.id === id);
+    localStorage.removeItem(filteredCity.id);
+    deleteDisplay(id);
+  };
 
   let deleteDisplay = (id: number) => {
-    const filteredCities: any = cities.filter(city => city.id !== id)
-    setCities(filteredCities)
-  }
+    const filteredCities: any = cities.filter((city) => city.id !== id);
+    setCities(filteredCities);
+  };
 
   let setStorage = (id: number, city: any) => {
-    let stringifiedCity = JSON.stringify(city)
-    localStorage.setItem(`${id}`, stringifiedCity)
-  }
+    let stringifiedCity = JSON.stringify(city);
+    localStorage.setItem(`${id}`, stringifiedCity);
+  };
 
   return (
     <div className="App">
-    <Switch>
-      <Route
-        exact
-        path="/hi-lo"
-        render={() => {
-          return (
-            <>
-              <Header />
-              <main className="main">
-                <Form onSearch={addCity} />
-                {error ? <div className={"error"}>{error}</div> : null}
-                {warning ? <div className={"warning"}>{warning}</div> : null}
+      <Switch>
+        <Route
+          exact
+          path="/hi-lo"
+          render={() => {
+            return (
+              <>
+                <Header />
+                <main className="main">
+                  <Form onSearch={addCity} />
+                  {error ? <div className={"error"}>{error}</div> : null}
+                  {warning ? <div className={"warning"}>{warning}</div> : null}
 
-                {!cities.length ? (
-                  <h2 className="no-city">No forecasts to show</h2>
-                ) : (
-                  <HomeCityCards
-                    allCities={cities}
-                    onSelect={(city) => {
-                      setCurrentCity(city);
-                      setDetails(city.coord);
-                    }}
-                    clickedCard={currentCity}
-                    details={forecastDetails}
-                    deleteCity={deleteCity}
-                  />
-                )}
-              </main>
-            </>
-          );
-        }}
-      />
-      <Route
-        exact
-        path="/hi-lo/cities/:name"
-        render={({ match }) => {
-          if (!currentCity && !forecastDetails) {
-            addCity(match.params.name);
-            if (cities.length >= 1) {
-              setCurrentCity(cities[0]);
-              setDetails(cities[0].coord);
+                  {!cities.length ? (
+                    <h2 className="no-city">No forecasts to show</h2>
+                  ) : (
+                    <HomeCityCards
+                      allCities={cities}
+                      onSelect={(city) => {
+                        setCurrentCity(city);
+                        setDetails(city.coord);
+                      }}
+                      clickedCard={currentCity}
+                      details={forecastDetails}
+                      deleteCity={deleteCity}
+                    />
+                  )}
+                </main>
+              </>
+            );
+          }}
+        />
+        <Route
+          exact
+          path="/hi-lo/cities/:name"
+          render={({ match }) => {
+            if (!currentCity && !forecastDetails) {
+              addCity(match.params.name);
+              if (cities.length >= 1) {
+                setCurrentCity(cities[0]);
+                setDetails(cities[0].coord);
+              }
+            } else {
             }
-          } else {
-          }
-          return (
-            <main className="details">
-              <Header />
-              <TodaysForecastDetails
-                details={forecastDetails}
-                clickedCard={currentCity}
-              />
-              <FiveDayForecastCardContainer fiveDayDetails={forecastDetails} />
-            </main>
-          );
-        }}
-      />
-     <Route path="*" render={() => <Error />}/>
-    </Switch>
+            return (
+              <main className="details">
+                <Header />
+                <TodaysForecastDetails
+                  details={forecastDetails}
+                  clickedCard={currentCity}
+                />
+                <FiveDayForecastCardContainer
+                  fiveDayDetails={forecastDetails}
+                />
+              </main>
+            );
+          }}
+        />
+        <Route path="*" render={() => <Error />} />
+      </Switch>
     </div>
   );
 };
