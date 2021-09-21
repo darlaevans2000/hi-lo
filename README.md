@@ -14,6 +14,7 @@
 ## Introduction
 The primary goal of this project was to self teach TypeScript. We decided to create an application where a user can view weather in any city they wish. A user can then click on a city card on the home page to view a more in depth forecast for that city. The specifications for this project can be found [here](https://frontend.turing.edu/projects/module-3/stretch.html)
 
+
 ## Goals
 * Self teach TypeScript
 * Use OpenWeather API to recieve weather for current cities
@@ -24,6 +25,7 @@ The primary goal of this project was to self teach TypeScript. We decided to cre
 ## Deploy
 [Use this deploy link!](https://hi-lo-weather.herokuapp.com/hi-lo)
 ---
+
 ## Features
 
 #### Home Page
@@ -48,7 +50,6 @@ Whenever users add a city card, it saves on loal storage. Users can refresh the 
 </p>
 
 
-
 ---
 
 #### Future Additions
@@ -68,12 +69,12 @@ TypeScript, React, React Router, Fetch/Async, Cypress, JSON, HTML5, SASS, React-
  <td><img src="https://avatars.githubusercontent.com/u/76928485?v=4" alt="Darla Evans GitHub Picture"
  width="150" height="auto" /></td>
   <tr>
-     <td> Erica Spitz <a href="https://github.com/e-spitz">GH</td>
+        <td> Erica Spitz <a href="https://github.com/e-spitz">GH</td>
     </tr>
  <td><img src="https://avatars.githubusercontent.com/u/73204436?v=4" alt="Erica Spitz GitHub Picture"
  width="150" height="auto" /></td>
      <tr>
-  <td> Natalie McIntyre <a href="https://github.com/nataliemcintyre2021">GH</td>
+       <td> Natalie McIntyre <a href="https://github.com/nataliemcintyre2021">GH</td>
     </tr>
  <td><img src="https://avatars.githubusercontent.com/u/78229679?v=4" alt="Natalie McIntyre GitHub Picture"
  width="150" height="auto" /></td>
@@ -83,4 +84,3 @@ TypeScript, React, React Router, Fetch/Async, Cypress, JSON, HTML5, SASS, React-
 ###### This project was created for [Turing School of Software and Design](https://turing.edu/)
 ###### September 20th, 2021
 **[Back to top](#table-of-contents)**
-  
