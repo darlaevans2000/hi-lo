@@ -42,3 +42,7 @@ Users can click on that city card from home page and view more details of that c
 
 #### Local Storage
 Whenever users add a city card, it saves on loal storage. Users can refresh the page and it will still be there. Users can also delete the cities from local storage. 
+<p align = "center">
+ <td><img src="https://media.giphy.com/media/nqOXIXiozVYZ4tPodZ/giphy.gif?cid=790b7611bc035be24324bec2c9763ec1c2a5a3645c75dfa9&rid=giphy.gif" alt="Demonstation of Local storage"
+ width="700" height="auto" /></td>
+</p>
