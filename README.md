@@ -35,3 +35,7 @@ On load, the user sees a search bar where they can search cities, this will also
 
 #### City Forecast Page
 Users can click on that city card from home page and view more details of that cities week forecast and more info about todays forecast. 
+<p align = "center">
+ <td><img src="https://media.giphy.com/media/oQuGOOgRZAzGSUoVFO/giphy.gif?cid=790b76114a79747c52505b5e42fdb4ac1c2c0428a20e72fa&rid=giphy.gif" alt="Demonstation of Forecast"
+ width="700" height="auto" /></td>
+</p>
