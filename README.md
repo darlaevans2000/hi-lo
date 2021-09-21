@@ -56,3 +56,6 @@ Whenever users add a city card, it saves on loal storage. Users can refresh the 
 - Add more responsive styling. 
 - Add state onto city info when displayed to user. 
 ---
+
+## Technologies
+TypeScript, React, React Router, Fetch/Async, Cypress, JSON, HTML5, SASS, React-Places-Autocomplete
