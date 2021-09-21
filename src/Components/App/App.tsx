@@ -6,7 +6,7 @@ import HomeCityCards from "../HomeCityCards/HomeCityCards";
 import Error from "../Error/Error"
 import { fetchCityForecast, fetchForecastDetails } from "../../apiCalls";
 import { WeatherLocation, Coordinates, Forecast } from "../../model/Weather";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import TodaysForecastDetails from "../TodaysForecastDetails/TodaysForecastDetails";
 import FiveDayForecastCardContainer from "../FiveDayForecastCardContainer/FiveDayForecastCardContainer";
 

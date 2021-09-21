@@ -37,8 +37,5 @@ describe('Weather Forecast is Loading Status', () => {
             .url().should('eq', 'http://localhost:3000/hi-lo')
     })
 
-
   });
-
-
 });
