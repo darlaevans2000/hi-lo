@@ -20,3 +20,7 @@ The primary goal of this project was to self teach TypeScript. We decided to cre
 * Use TDD - Cypress 
 * Create a search bar with Google places suggestions
 * Easy to navigate UI/UX  
+
+## Deploy
+[Use this deploy link!](https://hi-lo-weather.herokuapp.com/hi-lo)
+---
