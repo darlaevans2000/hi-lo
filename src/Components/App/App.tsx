@@ -5,7 +5,7 @@ import Form from "../Form/Form";
 import HomeCityCards from "../HomeCityCards/HomeCityCards";
 import { fetchCityForecast, fetchForecastDetails } from "../../apiCalls";
 import { WeatherLocation, Coordinates, Forecast } from "../../model/Weather";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import TodaysForecastDetails from "../TodaysForecastDetails/TodaysForecastDetails";
 import FiveDayForecastCardContainer from "../FiveDayForecastCardContainer/FiveDayForecastCardContainer";
 
@@ -82,6 +82,7 @@ const App: FC = () => {
 
   return (
     <div className="App">
+    <Switch>
       <Route
         exact
         path="/hi-lo"
@@ -138,6 +139,8 @@ const App: FC = () => {
           );
         }}
       />
+     <Route path="*" render={() => <Error />}/>
+      </Switch>
     </div>
   );
 };
