@@ -1,6 +1,7 @@
 {
   "name": "hi-lo",
   "version": "0.1.0",
+  "heroku-postbuild": "npm run build",
   "private": true,
   "homepage": "http://darlaevans2000.github.io/hi-lo",
   "dependencies": {
