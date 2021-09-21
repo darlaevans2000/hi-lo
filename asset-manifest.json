@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/hi-lo/static/css/main.3e6e1a2f.chunk.css",
+    "main.js": "/hi-lo/static/js/main.c9c67573.chunk.js",
+    "main.js.map": "/hi-lo/static/js/main.c9c67573.chunk.js.map",
+    "runtime-main.js": "/hi-lo/static/js/runtime-main.507f1c21.js",
+    "runtime-main.js.map": "/hi-lo/static/js/runtime-main.507f1c21.js.map",
+    "static/js/2.09f24dd0.chunk.js": "/hi-lo/static/js/2.09f24dd0.chunk.js",
+    "static/js/2.09f24dd0.chunk.js.map": "/hi-lo/static/js/2.09f24dd0.chunk.js.map",
+    "index.html": "/hi-lo/index.html",
+    "static/css/main.3e6e1a2f.chunk.css.map": "/hi-lo/static/css/main.3e6e1a2f.chunk.css.map",
+    "static/js/2.09f24dd0.chunk.js.LICENSE.txt": "/hi-lo/static/js/2.09f24dd0.chunk.js.LICENSE.txt",
+    "static/media/Header.css": "/hi-lo/static/media/clouds.cd7d61c3.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.507f1c21.js",
+    "static/js/2.09f24dd0.chunk.js",
+    "static/css/main.3e6e1a2f.chunk.css",
+    "static/js/main.c9c67573.chunk.js"
+  ]
+}
