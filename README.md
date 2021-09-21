@@ -79,4 +79,8 @@ TypeScript, React, React Router, Fetch/Async, Cypress, JSON, HTML5, SASS, React-
  width="150" height="auto" /></td>
 </table>  
 
+**************************************************************************
+###### This project was created for [Turing School of Software and Design](https://turing.edu/)
+###### September 20th, 2021
+**[Back to top](#table-of-contents)**
   
