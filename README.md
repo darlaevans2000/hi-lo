@@ -46,3 +46,13 @@ Whenever users add a city card, it saves on loal storage. Users can refresh the 
  <td><img src="https://media.giphy.com/media/nqOXIXiozVYZ4tPodZ/giphy.gif?cid=790b7611bc035be24324bec2c9763ec1c2a5a3645c75dfa9&rid=giphy.gif" alt="Demonstation of Local storage"
  width="700" height="auto" /></td>
 </p>
+
+
+
+---
+
+#### Future Additions
+- Add a login page for users to add the cities they want to display on login.
+- Add more responsive styling. 
+- Add state onto city info when displayed to user. 
+---
