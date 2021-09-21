@@ -141,8 +141,7 @@ const App: FC = () => {
         }}
       />
      <Route path="*" render={() => <Error />}/>
-</Switch>
-
+    </Switch>
     </div>
   );
 };
