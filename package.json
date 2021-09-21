@@ -32,12 +32,6 @@
     "deploy": "gh-pages -d build",
     "cypress": "./node_modules/.bin/cypress open"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
