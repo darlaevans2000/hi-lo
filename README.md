@@ -24,3 +24,7 @@ The primary goal of this project was to self teach TypeScript. We decided to cre
 ## Deploy
 [Use this deploy link!](https://hi-lo-weather.herokuapp.com/hi-lo)
 ---
+## Features
+
+#### Home Page
+On load, the user sees a search bar where they can search cities, this will also show suggestions of cities to select from. User must select from suggestions. Once they click the "add" button a card for that cities weather for today will pop up. 
