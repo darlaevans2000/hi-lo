@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "heroku-postbuild": "npm run build",
   "private": true,
-  "homepage": "https://hi-lo-weather.herokuapp.com/",
+  "homepage": "https://darlaevans2000.github.io/hi-lo/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
