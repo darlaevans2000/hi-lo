@@ -45,7 +45,7 @@ export const Form: FC<SearchCityProps> = ({onSearch}) => {
         {({getInputProps, suggestions, getSuggestionItemProps, loading}) => (
         <div className="autocomplete">
           <label>Search by City</label>
-          <input className="my-input" id="searchInput" {...getInputProps({placeholder: "Type City"})}/>
+          <input className="my-input" id="searchInput" {...getInputProps({placeholder: "ex: Denver, CO, USA"})}/>
           <button className="search-btn" type='submit' onClick={addCity} disabled={disableSearch}>add</button>
           <div className="suggestions">
             {loading ? <div>Loading...</div> : null}

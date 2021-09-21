@@ -12,6 +12,7 @@ input {
   width: 80%;
   padding: 10px;
   font-size: 1.1em;
+  font-style: italic;
 }
 
 label {
