@@ -1,7 +1,7 @@
-import React, { FC, useState } from 'react'
-import PlacesAutocomplete, {
-  geocodeByAddress } from 'react-places-autocomplete'
+import { FC, useState } from 'react'
+import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete'
 import './Form.css'
+
 interface SearchCityProps {
   onSearch: (cityInput: string) => void;
 }

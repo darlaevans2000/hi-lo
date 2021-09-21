@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import { FC } from "react";
 import './HomeCityCards.css'
 
 import { WeatherLocation, Forecast } from "../../model/Weather";
@@ -10,13 +10,12 @@ interface HomeCityProps {
   onSelect: (city: WeatherLocation) => void;
   clickedCard: WeatherLocation | null;
   details: Forecast | null;
-  stateStrings: string[];
   deleteCity: (id: number) => void;
 }
 
-export const HomeCityCards: FC<HomeCityProps> = ({ allCities, onSelect, clickedCard, details, stateStrings, deleteCity }) => {
+export const HomeCityCards: FC<HomeCityProps> = ({ allCities, onSelect, details, deleteCity }) => {
 
-const cityCards = allCities.map((city, i) => {
+const cityCards = allCities.map(city => {
 
     return (
       <NavLink className='card-link' to={`/hi-lo/${city.name}`}>
@@ -31,7 +30,6 @@ const cityCards = allCities.map((city, i) => {
           lo={city.main.temp_min}
           description={city.weather[0].description}
           icon={city.weather[0].icon}
-          stateString={stateStrings[i]}
           deleteCity={deleteCity}
         />
       </NavLink>
