@@ -6,7 +6,7 @@ import HomeCityCards from "../HomeCityCards/HomeCityCards";
 import Error from "../Error/Error"
 import { fetchCityForecast, fetchForecastDetails } from "../../apiCalls";
 import { WeatherLocation, Coordinates, Forecast } from "../../model/Weather";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import TodaysForecastDetails from "../TodaysForecastDetails/TodaysForecastDetails";
 import FiveDayForecastCardContainer from "../FiveDayForecastCardContainer/FiveDayForecastCardContainer";
 
@@ -16,7 +16,6 @@ const App: FC = () => {
   const [warning, setWarning] = useState("");
   const [currentCity, setCurrentCity] = useState<WeatherLocation | null>(null);
   const [forecastDetails, setForecastDetails] = useState<Forecast | null>(null);
-  const [stateStrings, setStateString] = useState<string[]>([]);
 
   const resetAlerts = () => {
     setError("");
@@ -26,11 +25,6 @@ const App: FC = () => {
   let addCity = async (cityName: string) => {
     resetAlerts();
     const fetchedCity = await fetchCityForecast(cityName);
-    let fetchedState = cityName.split(', ')[1]
-
-    if (fetchedState) {
-      setStateString([fetchedState, ...stateStrings])
-    }
 
     if (!fetchedCity) {
       setError(`No location found called '${cityName}'`);
@@ -63,7 +57,7 @@ const App: FC = () => {
       setCities([parsedCity, ...cities])
       cities.push(parsedCity)
     })
-  }, [])
+  },[])
 
   let deleteCity = (id: number) => {
     const filteredCity: any = cities.find(city => city.id === id)
@@ -107,7 +101,6 @@ const App: FC = () => {
                     }}
                     clickedCard={currentCity}
                     details={forecastDetails}
-                    stateStrings={stateStrings}
                     deleteCity={deleteCity}
                   />
                 )}

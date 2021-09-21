@@ -1,6 +1,6 @@
 import { WeatherLocation, Forecast } from "../../model/Weather";
 import './TodaysForecastDetails.css'
-import React, {FC} from "react";
+import { FC } from "react";
 import Loader from '../Loader/Loader'
 
 interface TodaysDetailsProps {
@@ -12,7 +12,7 @@ export const TodaysForecastDetails: FC<TodaysDetailsProps> = ({ details, clicked
 
   if (details && clickedCard) {
     const { dt, feels_like, humidity, sunrise, sunset, temp } = details.current
-    const { id, main, description, icon } = details.current.weather[0]
+    const { description } = details.current.weather[0]
 
     var date = new Date(dt * 1000)
     var convertedDate = date.toString().split(" ").slice(0, 4).join(" ")

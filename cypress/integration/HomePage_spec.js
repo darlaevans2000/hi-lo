@@ -27,13 +27,12 @@ describe("User Weather Area Flows", () => {
     it('Should be able to click Denver weather card, should update url to matching path and display details', () => {
         cy.get('*[class^="city-card"]').click()
             cy.loadSingleCityWeatherForecast()
-            .url().should('eq', 'http://localhost:3000/hi-lo/Denver')
+            .url().should('eq', 'http://localhost:3000/hi-lo/cities/Denver')
             .url().should('not.eq', 'http://localhost:3000/hi-lo/');
     })
       });
 
       describe("Error and Warning Messages", () => {
-          // Will update these once I can get a diff message to display in dom for diff errors.
         it("Should display error message for 500 status code", () => {
           cy.visit("http://localhost:3000/hi-lo/")
             .get("form")
@@ -73,6 +72,5 @@ describe("User Weather Area Flows", () => {
           cy.contains(`No location found called 'blah'`);
         });
 
-        
   });
 });

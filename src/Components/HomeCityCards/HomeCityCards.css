@@ -11,21 +11,39 @@
 
 @media screen and (max-width: 850px) {
   .cities-container {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: .75em;
+  },
+
+  .city-name,
+  .today,
+  .status,
+  .hi-lo {
+    font-size: 1em;
   }
 }
 
 @media screen and (max-width: 550px) {
   .cities-container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-gap: .5em;
+  },
+  .city-name,
+  .today,
+  .status,
+  .hi-lo {
+    font-size: 1em;
   }
 }
 
 @media screen and (max-width: 450px) {
   .cities-container {
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: .5em;
+    grid-gap: .25em;
+  },
+  .city-name,
+  .today,
+  .status,
+  .hi-lo {
+    font-size: 1em;
   }
 }
