@@ -59,3 +59,12 @@ Whenever users add a city card, it saves on loal storage. Users can refresh the 
 
 ## Technologies
 TypeScript, React, React Router, Fetch/Async, Cypress, JSON, HTML5, SASS, React-Places-Autocomplete
+
+## Authors
+<table display: inline;>
+    <tr>
+        <td> Darla Evans <a href="https://github.com/darlaevans2000">GH</td>
+    </tr>
+ <td><img src="https://avatars.githubusercontent.com/u/76928485?v=4" alt="Darla Evans GitHub Picture"
+ width="150" height="auto" /></td>
+  <tr>
