@@ -3,9 +3,10 @@ import "./App.css";
 import Header from "../Header/Header";
 import Form from "../Form/Form";
 import HomeCityCards from "../HomeCityCards/HomeCityCards";
+import Error from "../Error/Error"
 import { fetchCityForecast, fetchForecastDetails } from "../../apiCalls";
 import { WeatherLocation, Coordinates, Forecast } from "../../model/Weather";
-import { Route } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import TodaysForecastDetails from "../TodaysForecastDetails/TodaysForecastDetails";
 import FiveDayForecastCardContainer from "../FiveDayForecastCardContainer/FiveDayForecastCardContainer";
 
@@ -76,6 +77,7 @@ const App: FC = () => {
 
   return (
     <div className="App">
+    <Switch>
       <Route
         exact
         path="/hi-lo"
@@ -109,7 +111,7 @@ const App: FC = () => {
       />
       <Route
         exact
-        path="/hi-lo/:name"
+        path="/hi-lo/cities/:name"
         render={({ match }) => {
           if (!currentCity && !forecastDetails) {
             addCity(match.params.name);
@@ -131,6 +133,8 @@ const App: FC = () => {
           );
         }}
       />
+     <Route path="*" render={() => <Error />}/>
+    </Switch>
     </div>
   );
 };

@@ -1,8 +1,9 @@
 {
   "name": "hi-lo",
   "version": "0.1.0",
+  "heroku-postbuild": "npm run build",
   "private": true,
-  "homepage": "http://darlaevans2000.github.io/hi-lo",
+  "homepage": "https://darlaevans2000.github.io/hi-lo/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -29,14 +30,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -b main -d build",
     "cypress": "./node_modules/.bin/cypress open"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [

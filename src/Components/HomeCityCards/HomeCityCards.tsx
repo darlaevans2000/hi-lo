@@ -18,7 +18,7 @@ export const HomeCityCards: FC<HomeCityProps> = ({ allCities, onSelect, details,
 const cityCards = allCities.map(city => {
 
     return (
-      <NavLink className='card-link' to={`/hi-lo/${city.name}`}>
+      <NavLink className='card-link' to={`/hi-lo/cities/${city.name}`}>
         <HomeCard
           key={city.id}
           id={city.id}
