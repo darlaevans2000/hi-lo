@@ -59,7 +59,7 @@ Whenever users add a city card, it saves on loal storage. Users can refresh the 
 ---
 
 ## Technologies
-TypeScript, React, React Router, Fetch/Async, Cypress, JSON, HTML5, SASS, React-Places-Autocomplete
+TypeScript, React, React Router, Fetch/Async, Cypress, JSON, HTML5, CSS, React-Places-Autocomplete
 
 ## Authors
 <table display: inline;>
